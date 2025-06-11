@@ -76,18 +76,9 @@ header.scrolled {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-
-/* --- Project Card Enhancements --- */
-/* Added a glow effect on hover for the project cards for a more modern feel */
-.project-card:hover {
-    box-shadow: 0 0 25px rgba(56, 189, 248, 0.3); /* A soft cyan glow */
-}
-
-
 /* --- Skills Section Styling --- */
 /*
   Styles for the skill items, creating a nice hover effect.
-  The icon placeholder will be replaced with actual SVG icons later.
 */
 .skill-item {
     padding: 2rem;
@@ -95,6 +86,10 @@ header.scrolled {
     border-radius: 0.5rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .skill-item:hover {
@@ -103,20 +98,21 @@ header.scrolled {
     border-color: #22d3ee; /* cyan-400 */
 }
 
-/* Placeholder for icons - replace with actual SVGs or a font icon library like FontAwesome */
-.skill-item .text-6xl {
-    /* You can add icon-specific styles here */
+/*
+  Container for the SVG icons to ensure they are centered and have a consistent size.
+*/
+.skill-icon {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80px; /* Give a fixed height for alignment */
+    height: 80px; /* Gives a fixed height for alignment */
+    width: 80px;
 }
 
 
 /* --- Form Styling --- */
 /*
   Enhancing the focus state of form inputs for better user experience.
-  Tailwind's focus rings are great, but we can add a transition.
 */
 #contact input, #contact textarea {
     transition: border-color 0.3s ease, box-shadow 0.3s ease;

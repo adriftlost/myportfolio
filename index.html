@@ -4,28 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sulav Thapa - Portfolio</title>
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
-    <!-- Animate On Scroll Library -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Fira+Sans:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-gray-900 text-white font-poppins">
+<body class="bg-gray-900 text-white font-fira">
 
-    <!-- Header -->
     <header class="fixed w-full z-30">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="#" class="text-3xl font-bold text-white font-roboto-slab">ST.</a>
+            <a href="#" class="text-3xl font-bold text-white font-bebas">ST.</a>
             <div class="hidden md:flex space-x-8">
                 <a href="#about" class="hover:text-cyan-400 transition duration-300">About</a>
                 <a href="#projects" class="hover:text-cyan-400 transition duration-300">Journey</a>
                 <a href="#skills" class="hover:text-cyan-400 transition duration-300">Skills</a>
-                <a href="#contact" class="hover:text-cyan-400 transition duration-300">Contact</a>
             </div>
             <div class="md:hidden">
                 <button id="mobile-menu-button" class="text-white focus:outline-none">
@@ -33,37 +27,33 @@
                 </button>
             </div>
         </nav>
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-gray-800">
             <a href="#about" class="block py-2 px-4 text-sm hover:bg-gray-700">About</a>
             <a href="#projects" class="block py-2 px-4 text-sm hover:bg-gray-700">Journey</a>
             <a href="#skills" class="block py-2 px-4 text-sm hover:bg-gray-700">Skills</a>
-            <a href="#contact" class="block py-2 px-4 text-sm hover:bg-gray-700">Contact</a>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="hero" class="min-h-screen flex items-center bg-cover bg-center" style="background-image: url('https://placehold.co/1920x1080/0a0a0a/ffffff?text=Hello+World');">
+    <section id="hero" class="min-h-screen flex items-center bg-cover bg-center" style="background-image: url('http://googleusercontent.com/image_generation_content/0');">
         <div class="container mx-auto px-6 text-center">
-            <h1 class="text-5xl md:text-7xl font-bold font-roboto-slab text-white mb-4" data-aos="fade-down">Sulav Thapa</h1>
-            <p class="text-xl md:text-2xl text-gray-300 mb-8" data-aos="fade-up" data-aos-delay="200">Aspiring Computer Engineer & Hungry Learner</p>
-            <a href="#projects" class="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105" data-aos="zoom-in" data-aos-delay="400">See My Journey</a>
+            <h1 class="text-5xl md:text-7xl font-bold font-bebas text-white mb-4" data-aos="fade-down">Sulav Thapa</h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8 font-ubuntu" data-aos="fade-up" data-aos-delay="200">Aspiring Computer Engineer & Hungry Learner</p>
+            <a href="#projects" class="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 font-ubuntu" data-aos="zoom-in" data-aos-delay="400">See My Journey</a>
         </div>
     </section>
 
-    <!-- About Me Section -->
     <section id="about" class="py-20">
         <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-12 font-roboto-slab" data-aos="fade-up">About Me</h2>
+            <h2 class="text-4xl font-bold text-center mb-12 font-bebas" data-aos="fade-up">About Me</h2>
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/3 mb-8 md:mb-0" data-aos="fade-right">
                     <img src="https://placehold.co/400x400/333333/cccccc?text=ST" alt="Sulav Thapa" class="rounded-full shadow-lg mx-auto">
                 </div>
                 <div class="md:w-2/3 md:pl-12" data-aos="fade-left">
-                    <p class="text-lg text-gray-400 leading-relaxed">
+                    <p class="text-lg text-gray-400 leading-relaxed font-ubuntu">
                         I am a passionate **Computer Engineering** student with a love for building things for the web. As a hungry learner, I am constantly exploring new technologies and honing my skills. I believe in learning by doing and I'm excited about the journey ahead in the world of tech.
                     </p>
-                    <p class="text-lg text-gray-400 leading-relaxed mt-4">
+                    <p class="text-lg text-gray-400 leading-relaxed mt-4 font-ubuntu">
                         When I'm not coding or studying, you can find me strategizing over a game of **chess** or building imaginative worlds as a dedicated **Minecraft fan**.
                     </p>
                 </div>
@@ -71,109 +61,76 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects" class="py-20 bg-gray-800">
         <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-12 font-roboto-slab" data-aos="fade-up">My Learning Journey</h2>
+            <h2 class="text-4xl font-bold text-center mb-12 font-bebas" data-aos="fade-up">My Learning Journey</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
                 <div class="bg-gray-900 rounded-lg overflow-hidden shadow-lg transform hover:-translate-y-2 transition duration-500" data-aos="zoom-in-up">
                     <img src="https://placehold.co/600x400/1a1a1a/ffffff?text=Portfolio+Site" alt="Portfolio Website" class="w-full h-56 object-cover">
                     <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-2 font-roboto-slab">Portfolio Website</h3>
-                        <p class="text-gray-400 mb-4">This very website, built from scratch using HTML, Tailwind CSS, and JavaScript to practice modern web development techniques.</p>
-                        <a href="#" class="text-cyan-400 hover:underline">View on GitHub</a>
+                        <h3 class="text-2xl font-bold mb-2 font-bebas">Portfolio Website</h3>
+                        <p class="text-gray-400 mb-4 font-ubuntu">This very website, built from scratch using HTML, Tailwind CSS, and JavaScript to practice modern web development techniques.</p>
+                        <a href="#" class="text-cyan-400 hover:underline font-ubuntu">View on GitHub</a>
                     </div>
                 </div>
-                <!-- Project 2 -->
                 <div class="bg-gray-900 rounded-lg overflow-hidden shadow-lg transform hover:-translate-y-2 transition duration-500" data-aos="zoom-in-up" data-aos-delay="200">
                     <img src="https://placehold.co/600x400/1a1a1a/ffffff?text=Minecraft" alt="Minecraft Creations" class="w-full h-56 object-cover">
                     <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-2 font-roboto-slab">Minecraft Creations</h3>
-                        <p class="text-gray-400 mb-4">Exploring creative building and basic Redstone logic within Minecraft, blending creativity with problem-solving.</p>
-                        <a href="#" class="text-cyan-400 hover:underline">See Gallery</a>
+                        <h3 class="text-2xl font-bold mb-2 font-bebas">Minecraft Creations</h3>
+                        <p class="text-gray-400 mb-4 font-ubuntu">Exploring creative building and basic Redstone logic within Minecraft, blending creativity with problem-solving.</p>
+                        <a href="#" class="text-cyan-400 hover:underline font-ubuntu">See Gallery</a>
                     </div>
                 </div>
-                <!-- Project 3 -->
                 <div class="bg-gray-900 rounded-lg overflow-hidden shadow-lg transform hover:-translate-y-2 transition duration-500" data-aos="zoom-in-up" data-aos-delay="400">
                     <img src="https://placehold.co/600x400/1a1a1a/ffffff?text=Learning+In+Progress" alt="Learning In Progress" class="w-full h-56 object-cover">
                     <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-2 font-roboto-slab">More To Come</h3>
-                        <p class="text-gray-400 mb-4">As a beginner, I'm actively working on new projects. My next goal is to build a full-stack application. Stay tuned!</p>
-                        <a href="#contact" class="text-cyan-400 hover:underline">Follow My Progress</a>
+                        <h3 class="text-2xl font-bold mb-2 font-bebas">More To Come</h3>
+                        <p class="text-gray-400 mb-4 font-ubuntu">As a beginner, I'm actively working on new projects. My next goal is to build a full-stack application. Stay tuned!</p>
+                        <a href="#contact" class="text-cyan-400 hover:underline font-ubuntu">Follow My Progress</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
     <section id="skills" class="py-20">
         <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-12 font-roboto-slab" data-aos="fade-up">My Growing Toolkit</h2>
+            <h2 class="text-4xl font-bold text-center mb-12 font-bebas" data-aos="fade-up">My Growing Toolkit</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                 <div class="skill-item" data-aos="fade-up" data-aos-delay="100">
                     <div class="skill-icon">
                         <svg class="w-16 h-16 text-cyan-400" fill="currentColor" viewBox="0 0 24 24"><path d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l-4.854 4.854c-.205.205-.452.228-.657.022l-2.545-2.545c-.204-.204-.18-.452.022-.657L8.5 12 1.946 9.315z"/></svg>
                     </div>
-                    <h3 class="text-xl font-bold mt-4">JavaScript</h3>
+                    <h3 class="text-xl font-bold mt-4 font-ubuntu">JavaScript</h3>
                 </div>
                  <div class="skill-item" data-aos="fade-up" data-aos-delay="200">
                     <div class="skill-icon">
                          <svg class="w-16 h-16 text-cyan-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1.75l-10 3.5v10.5l10 4.5 10-4.5v-10.5l-10-3.5zm7.34 4.07l-7.34 2.62-7.34-2.62 7.34-2.82 7.34 2.82zm-8.34 13.51v-8.83l-6-2.14v6.6l6 2.37zm1-8.83v8.83l6-2.37v-6.6l-6 2.14z"/></svg>
                     </div>
-                    <h3 class="text-xl font-bold mt-4">HTML5 & CSS3</h3>
+                    <h3 class="text-xl font-bold mt-4 font-ubuntu">HTML5 & CSS3</h3>
                 </div>
                  <div class="skill-item" data-aos="fade-up" data-aos-delay="300">
                     <div class="skill-icon">
                         <svg class="w-16 h-16 text-cyan-400" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 12l-5.69-5.69a1.5 1.5 0 00-2.12 0l-1.6 1.6-2.12-2.12a1.5 1.5 0 00-2.12 0L3.12 11.37a1.5 1.5 0 000 2.12l5.69 5.69a1.5 1.5 0 002.12 0l1.6-1.6 2.12 2.12a1.5 1.5 0 002.12 0l5.69-5.69a1.5 1.5 0 000-2.12zM12 13.41L10.59 12 12 10.59 13.41 12 12 13.41z"/></svg>
                     </div>
-                    <h3 class="text-xl font-bold mt-4">Python</h3>
+                    <h3 class="text-xl font-bold mt-4 font-ubuntu">Python</h3>
                 </div>
                  <div class="skill-item" data-aos="fade-up" data-aos-delay="400">
                     <div class="skill-icon">
                         <svg class="w-16 h-16 text-cyan-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2c-5.52 0-10 4.48-10 10s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-12h2v2h-2v-2zm0 4h2v6h-2v-6z"/></svg>
                     </div>
-                    <h3 class="text-xl font-bold mt-4">C++/Java</h3>
+                    <h3 class="text-xl font-bold mt-4 font-ubuntu">C++/Java</h3>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-800">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-12 font-roboto-slab" data-aos="fade-up">Get In Touch</h2>
-            <div class="max-w-2xl mx-auto" data-aos="zoom-in">
-                <form action="#" method="POST" class="space-y-6">
-                    <div>
-                        <label for="name" class="block text-sm font-medium text-gray-300">Name</label>
-                        <input type="text" name="name" id="name" class="mt-1 block w-full bg-gray-700 border-gray-600 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-cyan-500 focus:border-cyan-500">
-                    </div>
-                    <div>
-                        <label for="email" class="block text-sm font-medium text-gray-300">Email</label>
-                        <input type="email" name="email" id="email" class="mt-1 block w-full bg-gray-700 border-gray-600 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-cyan-500 focus:border-cyan-500">
-                    </div>
-                    <div>
-                        <label for="message" class="block text-sm font-medium text-gray-300">Message</label>
-                        <textarea name="message" id="message" rows="4" class="mt-1 block w-full bg-gray-700 border-gray-600 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-cyan-500 focus:border-cyan-500"></textarea>
-                    </div>
-                    <div>
-                        <button type="submit" class="w-full bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300">Send Message</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer class="bg-gray-900 py-6">
-        <div class="container mx-auto px-6 text-center text-gray-500">
-            <p>&copy; 2024 Sulav Thapa. All Rights Reserved.</p>
+        <div class="container mx-auto px-6 text-center text-gray-500 font-ubuntu">
+            &copy; 2024 Sulav Thapa. All Rights Reserved.
         </div>
     </footer>
 
-    <!-- AOS JS -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init({
@@ -181,7 +138,6 @@
             once: true,
         });
     </script>
-    <!-- Custom JS -->
     <script src="script.js"></script>
 </body>
 </html>

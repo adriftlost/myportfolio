@@ -5,9 +5,10 @@
 
 /* --- Google Font Import --- */
 /*
-  Note: Fonts are already imported in the HTML via Google Fonts link.
-  font-family: 'Poppins', sans-serif;
-  font-family: 'Roboto Slab', serif;
+ Note: Fonts are already imported in the HTML via Google Fonts link.
+    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Fira Sans', sans-serif;
+    font-family: 'Bebas Neue', cursive;
 */
 
 /* --- Global Styles & Smooth Scrolling --- */
@@ -22,19 +23,23 @@ body {
 
 /* --- Font Family Helpers --- */
 /* Custom classes to easily apply the chosen fonts */
-.font-poppins {
-    font-family: 'Poppins', sans-serif;
+.font-ubuntu {
+    font-family: 'Ubuntu', sans-serif;
 }
 
-.font-roboto-slab {
-    font-family: 'Roboto Slab', serif;
+.font-fira {
+    font-family: 'Fira Sans', sans-serif;
+}
+
+.font-bebas {
+    font-family: 'Bebas Neue', cursive;
 }
 
 
 /* --- Header Styling --- */
 /*
-  The header is fixed. We'll add a background when the user scrolls.
-  This is controlled by the 'scrolled' class, which will be added via JavaScript.
+    The header is fixed. We'll add a background when the user scrolls.
+    This is controlled by the 'scrolled' class, which will be added via JavaScript.
 */
 header {
     transition: background-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
@@ -78,7 +83,7 @@ header.scrolled {
 
 /* --- Skills Section Styling --- */
 /*
-  Styles for the skill items, creating a nice hover effect.
+    Styles for the skill items, creating a nice hover effect.
 */
 .skill-item {
     padding: 2rem;
@@ -99,7 +104,7 @@ header.scrolled {
 }
 
 /*
-  Container for the SVG icons to ensure they are centered and have a consistent size.
+    Container for the SVG icons to ensure they are centered and have a consistent size.
 */
 .skill-icon {
     display: flex;
@@ -112,7 +117,7 @@ header.scrolled {
 
 /* --- Form Styling --- */
 /*
-  Enhancing the focus state of form inputs for better user experience.
+    Enhancing the focus state of form inputs for better user experience.
 */
 #contact input, #contact textarea {
     transition: border-color 0.3s ease, box-shadow 0.3s ease;

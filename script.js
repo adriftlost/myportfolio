@@ -88,8 +88,6 @@ const currentYearSpan = document.getElementById('current-year');
 if (currentYearSpan) {
     currentYearSpan.textContent = new Date().getFullYear();
 }
-
-// Add interactive effect for section titles on hover (subtle, not tied to AOS directly)
 document.querySelectorAll('.title-reveal').forEach(title => {
     title.addEventListener('mouseenter', () => {
         title.style.transition = 'transform 0.3s ease-out';

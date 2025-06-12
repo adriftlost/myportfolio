@@ -445,8 +445,6 @@ header.scrolled {
 .animation-delay-200 { animation-delay: 0.2s; }
 .animation-delay-400 { animation-delay: 0.4s; }
 
-
-/* Responsive Adjustments */
 @media (max-width: 767px) {
     .logo-text { font-size: 1.8rem; }
     #hero h2 { font-size: 3.5rem; }

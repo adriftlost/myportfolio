@@ -26,7 +26,7 @@
     <link rel="manifest" href="/site.webmanifest">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&family=Rubik:wght@300;400;500;600;700&family=Lekton:wght@400;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&family=Rubik:wght@300;400;500;600;700&family=Lekton:wght@400;700&family=Poppins:wght@700&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
@@ -35,12 +35,19 @@
     <header class="fixed w-full z-50 p-4 transition-all duration-300">
         <div class="container mx-auto flex justify-between items-center">
             <a href="#hydrogen" class="text-3xl font-bold logo-text text-everforest-green" data-aos="fade-right" data-aos-duration="800" aria-label="Go to Home section">Sulav Thapa</a>
-            <nav class="space-x-4 md:space-x-8 hidden md:flex" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200" aria-label="Main navigation">
-                <a href="#helium" class="nav-link">About</a>
-                <a href="#lithium" class="nav-link">Skills</a>
-                <a href="#beryllium" class="nav-link">Projects</a>
-                <a href="#boron" class="nav-link">Contact</a>
-            </nav>
+            <div class="flex items-center space-x-4 md:space-x-8">
+                <button id="music-toggle-button" class="music-button" aria-label="Toggle music play/pause">
+                    <svg id="play-icon" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
+                    <svg id="pause-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                    <span>Play Music</span>
+                </button>
+                <nav class="space-x-4 md:space-x-8 hidden md:flex" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200" aria-label="Main navigation">
+                    <a href="#helium" class="nav-link">About</a>
+                    <a href="#lithium" class="nav-link">Skills</a>
+                    <a href="#beryllium" class="nav-link">Projects</a>
+                    <a href="#boron" class="nav-link">Contact</a>
+                </nav>
+            </div>
             <button id="mobile-menu-button" class="md:hidden text-everforest-blue focus:outline-none p-2 rounded-md transition-colors duration-300 hover:bg-everforest-medium" aria-label="Open mobile menu">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
@@ -58,8 +65,8 @@
     <section id="hydrogen" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-everforest-darkest to-everforest-darker text-center relative overflow-hidden px-4 md:px-6">
         <div class="absolute inset-0 bg-animated-pattern opacity-15 animate-spin-subtle"></div>
         <div class="relative z-10 p-4 md:p-6 max-w-4xl mx-auto">
-            <h2 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-poppins font-bold mb-4 text-everforest-text drop-shadow-lg animate-text-clip" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">
-                Hey, I'm <br class="md:hidden"><span class="text-everforest-green">Sulav Thapa</span>
+            <h2 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-4 text-everforest-text drop-shadow-lg animate-text-clip" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">
+                <span class="font-poppins">Hey, I'm</span> <br class="md:hidden"><span class="text-everforest-green font-ubuntu">Sulav Thapa</span>
             </h2>
             <p class="text-lg md:text-2xl text-everforest-light-text tracking-wide animate-fade-in-up font-lekton" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="500">
                 A <span class="text-everforest-orange font-medium">Playful and Creative Programmer</span> <br class="hidden md:block"> with a curious mind and a love for elegant logic.
@@ -176,27 +183,27 @@
                 <div class="hobby-card" data-aos="fade-right" data-aos-duration="800" data-aos-delay="100">
                     <span class="text-4xl md:text-5xl mb-2 md:mb-3">♟️</span>
                     <h4 class="text-lg md:text-xl font-semibold text-everforest-green">Chess Guy.. Not Good Tho</h4>
-                    <p class="text-everforest-light-text font-lekton">Sharpening strategic thinking, one move at a time.</p>
+                    <p class="text-everforest-light-text font-lekton">Just trying to figure out how pieces move, you know? It's kinda fun trying to outsmart an imaginary opponent.</p>
                 </div>
                 <div class="hobby-card" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
                     <span class="text-4xl md:text-5xl mb-2 md:mb-3">📚</span>
                     <h4 class="text-lg md:text-xl font-semibold text-everforest-green">Bookworm Adventures</h4>
-                    <p class="text-everforest-light-text font-lekton">Diving into stories and knowledge, feeding the curious soul.</p>
+                    <p class="text-everforest-light-text font-lekton">I just like chilling with a good book, getting lost in different worlds or learning new stuff. Much better than staring at a screen all day.</p>
                 </div>
                 <div class="hobby-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
                     <span class="text-4xl md:text-5xl mb-2 md:mb-3">🌌</span>
                     <h4 class="text-lg md:text-xl font-semibold text-everforest-green">Reading Science Fiction</h4>
-                    <p class="text-everforest-light-text font-lekton">Exploring imaginative worlds and speculative futures.</p>
+                    <p class="text-everforest-light-text font-lekton">Exploring imaginative worlds and speculative futures, because why not? It's like mind-bending escape from reality, but in a cool way.</p>
                 </div>
                 <div class="hobby-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
                     <span class="text-4xl md:text-5xl mb-2 md:mb-3">⚛️</span>
                     <h4 class="text-lg md:text-xl font-semibold text-everforest-green">Quantum Mechanics (I try.. no expert)</h4>
-                    <p class="text-everforest-light-text font-lekton">Fascinated by the fundamental nature of reality.</p>
+                    <p class="text-everforest-light-text font-lekton">Still trying to wrap my head around it, to be honest. It's super confusing but also super cool, like, what even is reality?</p>
                 </div>
                 <div class="hobby-card md:col-span-2" data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
                     <span class="text-4xl md:text-5xl mb-2 md:mb-3">🌍</span>
                     <h4 class="text-lg md:text-xl font-semibold text-everforest-green">The Art of Learning Life</h4>
-                    <p class="text-everforest-light-text font-lekton">Embracing experiences, reflecting on growth, and finding joy in discovery.</p>
+                    <p class="text-everforest-light-text font-lekton">Just trying to figure out this whole 'life' thing, one day at a time. It's a journey, not a destination, right?</p>
                 </div>
             </div>
             <p class="text-base md:text-xl mt-10 md:mt-12 text-everforest-text animate-pop-in font-lekton" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="600">
@@ -220,24 +227,21 @@
     </section>
     <footer class="text-center py-6 md:py-8 bg-everforest-darker border-t border-everforest-medium">
         <p class="text-sm text-everforest-light-text" data-aos="fade-up" data-aos-duration="600">Coded with curiosity and dedication. &copy; <span id="current-year"></span> Sulav Thapa. All rights reserved.</p>
-        <div class="flex justify-center space-x-6 mt-4 font-lekton text-everforest-text text-2xl" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
-            <a href="https://www.youtube.com/watch?v=ZzUsKizhb8o&list=PL_vkVwrwck3NJ9ajMQv7Y-DfX9gVAk5in" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="YouTube">
-                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 3c-1.464 0-2.434.02-3.146.06c-.718.04-1.22.14-1.636.315c-.417.175-.76.435-1.077.752c-.318.318-.577.66-.752 1.077c-.175.417-.275.918-.315 1.636c-.04.712-.06 1.682-.06 3.146v.01c0 1.464.02 2.434.06 3.146c.04.718.14 1.22.315 1.636c.175.417.435.76.752 1.077c.318.318.66.577 1.077.752c.417.175.918.275 1.636.315c.712.04 1.682.06 3.146.06h.01c1.464 0 2.434-.02 3.146-.06c.718-.04 1.22-.14 1.636-.315c.417-.175.76-.435 1.077-.752c.318-.318.577-.66.752-1.077c.175-.417.275-.918.315-1.636c.04-.712.06-1.682.06-3.146v-.01c0-1.464-.02-2.434-.06-3.146c-.04-.718-.14-1.22-.315-1.636c-.175-.417-.435-.76-.752-1.077c-.318-.318-.66-.577-1.077-.752c-.417-.175-.918-.275-1.636-.315c-.712-.04-1.682-.06-3.146-.06Zm-4.99 7.025v2.21l.006.01a.3.3 0 0 0 .15.253l4.512 2.37a.3.3 0 0 0 .285 0l4.506-2.37a.3.3 0 0 0 .15-.252l.007-.01v-2.21a.3.3 0 0 0-.15-.253l-4.506-2.37a.3.3 0 0 0-.285 0l-4.512 2.37a.3.3 0 0 0-.15.253Z"/></svg>
+        <div class="flex justify-center space-x-6 mt-4 font-lekton text-everforest-text text-lg" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
+            <a href="https://www.youtube.com/watch?v=ZzUsKizhb8o&list=PL_vkVwrwck3NJ9ajMQv7Y-DfX9gVAk5in" target="_blank" rel="noopener noreferrer" class="social-link-text">
+                YouTube
             </a>
-            <a href="https://www.youtube.com/watch?v=r5zYJjCtFSY&list=PL_vkVwrwck3NJ9ajMQv7Y-DfX9gVAk5in&index=6" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub">
-                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0c-6.626 0-12 5.373-12 12c0 5.302 3.438 9.8 8.207 11.387c.599.111.793-.261.793-.577v-2.234c-3.338.725-4.04-1.605-4.04-1.605c-.546-1.385-1.334-1.751-1.334-1.751c-1.082-.731.084-.716.084-.716c1.205.082 1.838 1.215 1.838 1.215c1.07 1.835 2.804 1.302 3.49.997c.107-.775.418-1.302.762-1.605c-2.665-.3-5.466-1.333-5.466-5.93c0-1.312.465-2.384 1.235-3.222c-.12-.303-.535-1.524.117-3.176c0 0 1.008-.322 3.301 1.23c.957-.266 1.983-.399 3.003-.404c1.02.005 2.046.138 3.003.404c2.294-1.552 3.3-1.23 3.3-1.23c.653 1.653.238 2.874.119 3.176c.77.838 1.235 1.91 1.235 3.222c0 4.607-2.808 5.626-5.474 5.929c.43.369.812 1.101.812 2.219v3.292c0 .319.194.694.801.576c4.766-1.57 8.205-6.084 8.205-11.386c0-6.627-5.373-12-12-12Z"/></svg>
+            <a href="https://www.youtube.com/watch?v=r5zYJjCtFSY&list=PL_vkVwrwck3NJ9ajMQv7Y-DfX9gVAk5in&index=6" target="_blank" rel="noopener noreferrer" class="social-link-text">
+                Discord
             </a>
-            <a href="https://www.youtube.com/watch?v=r5zYJjCtFSY&list=PL_vkVwrwck3NJ9ajMQv7Y-DfX9gVAk5in&index=6" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Discord">
-                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M20.245 2.122A2.43 2.43 0 0 0 18.066.046c-1.396-.134-2.73.4-3.822 1.13c-.932-.577-1.782-1.082-2.585-1.503c-.027-.013-.05-.027-.075-.04c-.03-.014-.06-.027-.09-.04a7.92 7.92 0 0 0-4.045-.04c-.03.013-.06.026-.09.04c-.025.013-.048.027-.075.04c-.803.42-1.653.926-2.585 1.503c-1.092-.73-2.426-1.264-3.822-1.13A2.43 2.43 0 0 0 .047 2.122C-.287 4.092.384 5.926 1.114 7.64c.24.47 1.05 1.83 1.767 3.06c.012.02.023.042.036.063c.023.037.043.076.067.113c1.785 2.87 3.328 4.79 4.394 5.91c.78 1.488 1.763 2.723 2.868 3.513c.123.088.248.163.37.23a.1.1 0 0 0 .118 0c1.105-.79 2.088-2.024 2.868-3.513c1.066-1.12 2.61-3.04 4.394-5.91c.024-.037.044-.076.067-.113c.013-.02.024-.042.036-.063c.717-1.23 1.527-2.59 1.767-3.06c.73-1.714 1.401-3.548 1.067-5.518ZM8.08 14.15a1.855 1.855 0 1 1 0-3.71a1.855 1.855 0 0 1 0 3.71Zm7.838 0a1.855 1.855 0 1 1 0-3.71a1.855 1.855 0 0 1 0 3.71Z"/></svg>
+            <a href="https://www.youtube.com/watch?v=4FL4GORUTSM&list=PL_vkVwrwck3NJ9ajMQv7Y-DfX9gVAk5in&index=9" target="_blank" rel="noopener noreferrer" class="social-link-text">
+                LinkedIn
             </a>
-            <a href="https://www.youtube.com/watch?v=4FL4GORUTSM&list=PL_vkVwrwck3NJ9ajMQv7Y-DfX9gVAk5in&index=9" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            <a href="https://www.youtube.com/watch?v=mVRl-_OV3Rc&list=PL_vkVwrwck3NJ9ajMQv7Y-DfX9gVAk5in&index=28" target="_blank" rel="noopener noreferrer" class="social-link-text">
+                Facebook
             </a>
-            <a href="https://www.youtube.com/watch?v=mVRl-_OV3Rc&list=PL_vkVwrwck3NJ9ajMQv7Y-DfX9gVAk5in&index=28" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Facebook">
-                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.04c-5.53 0-10 4.47-10 10c0 4.99 3.66 9.12 8.44 9.87v-7H9.18v-2.8h2.26v-2.07c0-2.24 1.35-3.89 3.77-3.89c1.13 0 2.37.2 2.37.2v2.6H17c-1.12 0-1.46.7-1.46 1.43v1.85h2.89l-.47 2.8h-2.42v7.56C18.33 21.16 22 17.03 22 12.04c0-5.53-4.47-10-10-10Z"/></svg>
-            </a>
-            <a href="https://www.youtube.com/watch?v=mVRl-_OV3Rc&list=PL_vkVwrwck3NJ9ajMQv7Y-DfX9gVAk5in&index=28" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="X (formerly Twitter)">
-                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M18.901 1.153h3.682l-8.067 9.19L24 22.846h-7.406l-5.83-6.643L5.3 22.846H1.18l8.608-9.8L0 1.154h7.525L12.511 8.85l6.39-7.697zm-2.868 18.251H16.03L6.47 4.116H7.21l9.182 15.288z"/></svg>
+            <a href="https://www.youtube.com/watch?v=mVRl-_OV3Rc&list=PL_vkVwrwck3NJ9ajMQv7Y-DfX9gVAk5in&index=28" target="_blank" rel="noopener noreferrer" class="social-link-text">
+                X (Twitter)
             </a>
         </div>
     </footer>

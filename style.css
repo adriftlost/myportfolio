@@ -29,6 +29,10 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Lekton', monospace;
 }
 
+.font-poppins {
+    font-family: 'Poppins', sans-serif;
+}
+
 #helium p {
     font-family: 'Rubik', sans-serif;
 }
@@ -308,7 +312,7 @@ header.scrolled {
     border-radius: 50%;
     opacity: 0;
     transition: transform 0.4s ease-out, opacity 0.4s ease-out;
-    z-index: -1;
+    pointer-events: none;
 }
 
 .social-icon:hover::before {
@@ -320,6 +324,13 @@ header.scrolled {
     color: var(--everforest-orange);
     transform: translateY(-10px) rotate(8deg) scale(1.2);
     filter: drop-shadow(0 8px 15px rgba(230, 152, 117, 0.5));
+}
+
+.social-icon svg {
+    width: 2em; /* Explicit width for visibility */
+    height: 2em; /* Explicit height for visibility */
+    display: block; /* Ensure it takes up space correctly */
+    color: inherit; /* Make sure it inherits color from parent anchor */
 }
 
 .bg-animated-pattern {
@@ -469,8 +480,8 @@ header.scrolled {
     }
     .flex-wrap > *:not(:last-child) {
         margin-bottom: 1rem;
-}
-.flex-wrap > *:not(:first-child) {
+    }
+    .flex-wrap > *:not(:first-child) {
         margin-left: 0;
     }
 }

@@ -35,15 +35,21 @@
     <header class="fixed w-full z-50 p-4">
         <div class="container mx-auto flex justify-between items-center">
             <a href="#hydrogen" class="text-3xl font-bold logo-text" data-aos="fade-right" data-aos-duration="800" aria-label="Go to Home section">Sulav Thapa</a>
-            <nav class="space-x-4 md:space-x-8 hidden md:flex" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200" aria-label="Main navigation">
-                <a href="#helium" class="nav-link">About</a>
-                <a href="#lithium" class="nav-link">Skills</a>
-                <a href="#beryllium" class="nav-link">Projects</a>
-                <a href="#boron" class="nav-link">Contact</a>
-            </nav>
-            <button id="mobile-menu-button" class="md:hidden text-everforest-blue focus:outline-none p-2 rounded-md transition-colors duration-300 hover:bg-everforest-medium" aria-label="Open mobile menu">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
+            <div class="flex items-center space-x-4">
+                <nav class="space-x-4 md:space-x-8 hidden md:flex" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200" aria-label="Main navigation">
+                    <a href="#helium" class="nav-link">About</a>
+                    <a href="#lithium" class="nav-link">Skills</a>
+                    <a href="#beryllium" class="nav-link">Projects</a>
+                    <a href="#boron" class="nav-link">Contact</a>
+                </nav>
+                <button id="header-music-button" class="music-button" aria-label="Toggle Music" data-aos="fade-left" data-aos-duration="800" data-aos-delay="400">
+                    <svg class="icon play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg>
+                    <svg class="icon pause-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg>
+                </button>
+                <button id="mobile-menu-button" class="md:hidden text-everforest-blue focus:outline-none p-2 rounded-md transition-colors duration-300 hover:bg-everforest-medium" aria-label="Open mobile menu">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -59,9 +65,9 @@
 
     <main>
         <section id="hydrogen" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-everforest-darkest to-everforest-darker text-center relative overflow-hidden px-4 md:px-6">
-            <div class="relative z-10 p-4 md:p-6 max-w-4xl mx-auto">
-                <h2 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-4 text-everforest-text drop-shadow-lg" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">
-                    <span class="font-poppins">Hey, I'm</span> <br class="md:hidden"><span class="animate-text-clip">Sulav Thapa</span>
+            <div class="relative z-10 p-4 md:p-6 max-w-5xl mx-auto">
+                <h2 class="hero-title font-ubuntu text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-4 text-everforest-text drop-shadow-lg" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">
+                    <span>Hey, I'm </span><span class="text-everforest-green">Sulav Thapa</span>
                 </h2>
                 <p class="text-lg md:text-2xl text-everforest-light-text tracking-wide font-lekton" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="500">
                     A <span class="text-everforest-orange font-medium">Playful and Creative Programmer</span> <br class="hidden md:block"> with a curious mind and a love for elegant logic.
@@ -199,11 +205,6 @@
             <a href="https://www.youtube.com/watch?v=mVRl-_OV3Rc&list=PL_vkVwrwck3NJ9ajMQv7Y-DfX9gVAk5in&index=28" target="_blank" rel="noopener noreferrer" class="nav-link">X (Twitter)</a>
         </div>
     </footer>
-
-    <button id="music-bubble-button" aria-label="Toggle background music">
-        <svg class="icon play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-        <svg class="icon pause-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-    </button>
     
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>

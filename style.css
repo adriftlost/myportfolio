@@ -27,7 +27,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .font-lekton { font-family: 'Lekton', monospace; }
 .font-poppins { font-family: 'Poppins', sans-serif; }
-#helium p { font-family: 'Rubik', sans-serif; }
+.font-ubuntu { font-family: 'Ubuntu', sans-serif; }
 
 header {
     background: transparent;
@@ -89,6 +89,63 @@ header.scrolled {
     transform: translateY(-3px);
 }
 
+.music-button {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background-color: transparent;
+    border: 2px solid var(--everforest-medium);
+    color: var(--everforest-blue);
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.music-button:hover {
+    border-color: var(--everforest-green);
+    background-color: rgba(137, 180, 130, 0.1);
+}
+
+.music-button .icon {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.3s ease;
+}
+
+.music-button .play-icon {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.music-button .pause-icon {
+    transform: scale(0);
+    opacity: 0;
+}
+
+.music-button.playing {
+    border-color: var(--everforest-green);
+    color: var(--everforest-green);
+}
+
+.music-button.playing .play-icon {
+    transform: scale(0);
+    opacity: 0;
+}
+
+.music-button.playing .pause-icon {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.hero-title {
+    line-height: 1.2;
+}
+
 .btn-primary, .btn-secondary {
     padding: 0.8rem 2.2rem;
     font-weight: 600;
@@ -144,13 +201,6 @@ header.scrolled {
     border-color: var(--everforest-blue);
 }
 
-.animate-text-clip {
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    background-image: linear-gradient(45deg, var(--everforest-green), var(--everforest-blue));
-}
-
 .animate-scroll-arrow {
     animation: bounce-arrow 2.5s infinite ease-in-out;
 }
@@ -161,64 +211,12 @@ header.scrolled {
     60% { transform: translateY(-10px); }
 }
 
-#music-bubble-button {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, var(--everforest-green), var(--everforest-blue));
-    border-radius: 50%;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    overflow: hidden;
-}
-
-#music-bubble-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 12px 30px rgba(127, 187, 179, 0.4);
-}
-
-#music-bubble-button .icon {
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    color: var(--everforest-darkest);
-    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.4s ease;
-}
-
-#music-bubble-button .play-icon {
-    transform: scale(1) rotate(0deg);
-    opacity: 1;
-}
-
-#music-bubble-button .pause-icon {
-    transform: scale(0) rotate(-90deg);
-    opacity: 0;
-}
-
-#music-bubble-button.playing .play-icon {
-    transform: scale(0) rotate(90deg);
-    opacity: 0;
-}
-
-#music-bubble-button.playing .pause-icon {
-    transform: scale(1) rotate(0deg);
-    opacity: 1;
-}
-
 #mobile-menu-overlay {
     transition: opacity 0.3s ease-in-out;
 }
 
-@media (max-width: 768px) {
-    .logo-text {
-        font-size: 1.5rem;
+@media (min-width: 768px) {
+    .music-button {
+        display: flex;
     }
 }

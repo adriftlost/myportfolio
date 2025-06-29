@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const allNavLinks = document.querySelectorAll('a[href^="#"]');
     
     // --- Audio Player ---
-    // IMPORTANT: Replace the src with the actual path to your 'forest-lofi.mp3' file.
     const audio = new Audio('forest-lofi.mp3');
     audio.loop = true;
     audio.volume = 0.4;

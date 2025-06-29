@@ -7,14 +7,37 @@ document.addEventListener('DOMContentLoaded', () => {
         anchorPlacement: 'top-bottom',
         offset: 120,
     });
-
     const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const closeMobileMenuButton = document.getElementById('close-mobile-menu');
     const header = document.querySelector('header');
     const currentYearSpan = document.getElementById('current-year');
-    const musicButton = document.getElementById('music-bubble-button');
+    const musicButton = document.getElementById('header-music-button');
     const allNavLinks = document.querySelectorAll('a[href^="#"]');
+    
+    // --- Audio Player ---
+    // IMPORTANT: Replace the src with the actual path to your 'forest-lofi.mp3' file.
+    const audio = new Audio('forest-lofi.mp3');
+    audio.loop = true;
+    audio.volume = 0.4;
+    let isPlaying = false;
+
+    if (musicButton) {
+        musicButton.addEventListener('click', () => {
+            isPlaying = !isPlaying;
+            if (isPlaying) {
+                audio.play().catch(error => {
+                    console.error("Audio playback failed:", error);
+                    isPlaying = false; // Reset state on failure
+                    musicButton.classList.remove('playing');
+                });
+                musicButton.classList.add('playing');
+            } else {
+                audio.pause();
+                musicButton.classList.remove('playing');
+            }
+        });
+    }
 
     const closeMobileMenu = () => {
         if (!mobileMenuOverlay) return;
@@ -25,7 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
             mobileMenuOverlay.classList.add('hidden');
         }, 300);
     };
-
     const openMobileMenu = () => {
         if (!mobileMenuOverlay) return;
         mobileMenuOverlay.classList.remove('hidden');
@@ -35,33 +57,30 @@ document.addEventListener('DOMContentLoaded', () => {
             mobileMenuOverlay.classList.add('opacity-100');
         }, 10);
     };
-
+    if (mobileMenuButton) {
+        mobileMenuButton.addEventListener('click', openMobileMenu);
+    }
+    if (closeMobileMenuButton) {
+        closeMobileMenuButton.addEventListener('click', closeMobileMenu);
+    }
     allNavLinks.forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
-            const targetElement = document.querySelector(href);
-
-            if (targetElement) {
-                e.preventDefault();
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-                if (mobileMenuOverlay && !mobileMenuOverlay.classList.contains('hidden')) {
-                    closeMobileMenu();
+            if (href.startsWith('#')) {
+                const targetElement = document.querySelector(href);
+                if (targetElement) {
+                    e.preventDefault();
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    if (mobileMenuOverlay && !mobileMenuOverlay.classList.contains('hidden')) {
+                        closeMobileMenu();
+                    }
                 }
             }
         });
     });
-
-    if (mobileMenuButton) {
-        mobileMenuButton.addEventListener('click', openMobileMenu);
-    }
-
-    if (closeMobileMenuButton) {
-        closeMobileMenuButton.addEventListener('click', closeMobileMenu);
-    }
-    
     window.addEventListener('scroll', () => {
         if (header) {
             if (window.scrollY > 50) {
@@ -71,34 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     }, { passive: true });
-
     if (currentYearSpan) {
         currentYearSpan.textContent = new Date().getFullYear();
-    }
-
-    if (musicButton) {
-        const audio = new Audio('https://assets.mixkit.co/music/preview/mixkit-lofi-chill-199.mp3');
-        audio.loop = true;
-        audio.volume = 0.4;
-        let isPlaying = false;
-        let hasUserInteracted = false;
-
-        const togglePlayback = () => {
-            if (!hasUserInteracted) hasUserInteracted = true;
-            isPlaying = !isPlaying;
-            if (isPlaying) {
-                audio.play().catch(error => {
-                    console.error("Audio playback failed:", error);
-                    isPlaying = false;
-                    musicButton.classList.remove('playing');
-                });
-                musicButton.classList.add('playing');
-            } else {
-                audio.pause();
-                musicButton.classList.remove('playing');
-            }
-        };
-        
-        musicButton.addEventListener('click', togglePlayback);
     }
 });

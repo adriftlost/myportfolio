@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const musicButton = document.getElementById('header-music-button');
     const allNavLinks = document.querySelectorAll('a[href^="#"]');
     
-    // --- Audio Player ---
     const audio = new Audio('forest-lofi.mp3');
     audio.loop = true;
     audio.volume = 0.4;
@@ -27,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (isPlaying) {
                 audio.play().catch(error => {
                     console.error("Audio playback failed:", error);
-                    isPlaying = false; // Reset state on failure
+                    isPlaying = false;
                     musicButton.classList.remove('playing');
                 });
                 musicButton.classList.add('playing');

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Sulav Thapa Ho Nii</title>
     <meta name="description" content="Sulav Thapa: An early 20's playful and creative programmer with a love for numbers, digital logic, and C/C++, always learning and exploring.">
-    <meta itemprop="name" content="Sulav Thapa - Playful & Creative Programmer">
+    <meta itemprop="name" content="Sulav Thapa Ho Hai Ma :D">
     <meta itemprop="description" content="Sulav Thapa: An early 20's playful and creative programmer with a love for numbers, digital logic, and C/C++, always learning and exploring.">
     <meta itemprop="image" content="https://i.postimg.cc/wxmQqqKt/1d73059ddd164de7dd14f15c0bec6feb.png">
     <meta property="og:type" content="website">
@@ -26,8 +26,7 @@
     <link rel="manifest" href="/site.webmanifest">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Commit+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
@@ -55,6 +54,8 @@
             --everforest-accent-light: #89b482;
             --everforest-accent-medium: #7fbbb3;
             --everforest-accent-dark: #e69875;
+            --everforest-minty-green: #7fbbb3; 
+            --everforest-blueish-green: #89b482;
         }
         html {
             scroll-behavior: smooth;
@@ -79,12 +80,12 @@
             -ms-overflow-style: none;
         }
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif; 
             font-weight: 700;
             color: var(--everforest-text);
         }
-        .font-commit-mono { font-family: 'Commit Mono', monospace; }
-        .font-poppins { font-family: 'Poppins', sans-serif; }
+        .font-ubuntu { font-family: 'Ubuntu', sans-serif; }
+        .font-spacemono { font-family: 'Space Mono', monospace; } 
         .font-inter { font-family: 'Inter', sans-serif; }
         #three-bg {
             position: fixed;
@@ -112,7 +113,7 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
         }
         .logo-text {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif; 
             font-size: 1.75rem;
             font-weight: 700;
             color: var(--everforest-green);
@@ -247,7 +248,7 @@
             transform: translateY(100%);
         }
         .gradient-text {
-            background: linear-gradient(90deg, var(--everforest-green), var(--everforest-blue), var(--everforest-orange), var(--everforest-green));
+            background: linear-gradient(90deg, var(--everforest-minty-green), var(--everforest-blueish-green));
             background-size: 200% 200%;
             -webkit-background-clip: text;
             background-clip: text;
@@ -355,17 +356,17 @@
             max-width: 800px;
             height: 60vh;
             max-height: 500px;
-            background-color: rgba(43, 50, 54, 0.7);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 12px 12px 0 0;
-            box-shadow: 0 -10px 50px rgba(0, 0, 0, 0.5);
+            background-color: rgba(43, 50, 54, 0.65);
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+            border-radius: 14px 14px 0 0;
+            box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.05);
             z-index: 999;
             transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            border-top: 1px solid rgba(127, 187, 179, 0.1);
+            border-top: 1px solid rgba(127, 187, 179, 0.2);
             user-select: none;
             touch-action: none;
         }
@@ -396,7 +397,7 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            font-family: 'Commit Mono', monospace;
+            font-family: 'Space Mono', monospace; 
             font-size: 0.8rem;
             color: var(--everforest-light-text);
         }
@@ -404,7 +405,7 @@
             flex-grow: 1;
             padding: 1rem;
             overflow-y: scroll;
-            font-family: 'Commit Mono', monospace;
+            font-family: 'Space Mono', monospace; 
             color: var(--everforest-text);
             font-size: 0.9rem;
             line-height: 1.4;
@@ -423,7 +424,7 @@
             background: transparent;
             border: none;
             color: var(--everforest-text);
-            font-family: 'Commit Mono', monospace;
+            font-family: 'Space Mono', monospace; 
             font-size: 0.9rem;
             flex-grow: 1;
             outline: none;
@@ -462,6 +463,51 @@
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border-top: 1px solid rgba(127, 187, 179, 0.1);
+        }
+
+        .minty-green-text {
+            color: var(--everforest-green);
+            text-shadow: 0 0 10px rgba(137, 180, 130, 0.4);
+        }
+        
+        .nav-link:hover {
+            color: var(--everforest-green);
+            transform: translateY(-4px) scale(1.05);
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-color: var(--everforest-accent-medium);
+            background-color: rgba(59, 66, 71, 0.7);
+        }
+        .skill-card span {
+            transition: transform 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+        }
+        .skill-card:hover span {
+            transform: scale(1.2) rotate(8deg);
+        }
+
+        @keyframes pfp-idle {
+            0% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-2px) rotate(1deg); }
+            50% { transform: translateY(0) rotate(0deg); }
+            75% { transform: translateY(2px) rotate(-1deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+
+        .pfp-image.idle-animation {
+            animation: pfp-idle 4s ease-in-out infinite;
+        }
+
+        @keyframes button-idle {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+
+        .btn-primary.idle-animation {
+            animation: button-idle 3s ease-in-out infinite;
         }
     </style>
 </head>
@@ -512,18 +558,18 @@
         <section id="hydrogen" class="min-h-screen flex flex-col items-center justify-center text-center relative overflow-hidden px-4 md:px-6">
             <div class="relative z-10 p-4 md:p-6 max-w-5xl mx-auto flex flex-col items-center">
                 <div class="hero-text-container mb-2">
-                    <span class="hero-line text-xl md:text-2xl text-everforest-light-text font-inter block">Namaste!, I'm</span>
+                    <span class="hero-line text-xl md:text-2xl minty-green-text font-inter block">Namaste!, I'm</span>
                 </div>
                 <div class="hero-text-container mb-4">
-                    <h1 class="hero-line font-poppins text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold gradient-text">
+                    <h1 class="hero-line font-ubuntu text-7xl sm:text-8xl md:text-9xl lg:text-10xl font-bold gradient-text">
                         Sulav Thapa
                     </h1>
                 </div>
                 <div class="hero-text-container mb-10">
-                    <span id="animated-tagline" class="hero-line text-xl md:text-2xl text-everforest-orange font-inter block">A Passionate Creator</span>
+                    <span id="animated-tagline" class="hero-line text-xl md:text-2xl minty-green-text font-inter block">A Passionate Creator</span>
                 </div>
                 <div id="hero-button-container">
-                    <button id="hero-terminal-button" class="btn-primary">Experience My Terminal</button>
+                    <button id="hero-terminal-button" class="btn-primary idle-animation">Experience My Terminal</button>
                 </div>
             </div>
             <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2">
@@ -541,21 +587,21 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
                     <div class="flex justify-center order-2 md:order-1" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">
                         <div class="pfp-container">
-                            <img src="https://i.postimg.cc/wxmQqqKt/1d73059ddd164de7dd14f15c0bec6feb.png" alt="Sulav Thapa Profile Picture" class="pfp-image w-60 h-60 md:w-72 md:h-72">
+                            <img src="https://i.postimg.cc/wxmQqqKt/1d73059ddd164de7dd14f15c0bec6feb.png" alt="Sulav Thapa Profile Picture" class="pfp-image w-60 h-60 md:w-72 md:h-72 idle-animation">
                         </div>
                     </div>
                     <div class="md:text-left order-1 md:order-2" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="100">
-                        <p class="text-base md:text-lg leading-relaxed text-everforest-light-text mb-4 md:mb-6">
+                        <p class="text-base md:text-lg leading-relaxed text-everforest-light-text mb-4 md:mb-6 font-inter">
                             I'm Sulav Thapa, in my early 20s... a curious programmer who truly enjoys the blend of logic and creativity that coding brings. It all started with a deep interest in
                             <strong class="text-everforest-orange">numbers, digital circuits, and electrical systems</strong>, which slowly pulled me towards the fascinating world of programming.
                             अनि हेर्दा हेर्दै यो यात्रामा रमाउँदै छु — learning, building, and exploring more each day.
                         </p>
-                        <p class="text-base md:text-lg leading-relaxed text-everforest-light-text mb-4 md:mb-6">
+                        <p class="text-base md:text-lg leading-relaxed text-everforest-light-text mb-4 md:mb-6 font-inter">
                             While <strong>C/C++</strong> are my main languages where I dive deep into system-level thinking, I also have a keen interest and a good sprinkle of knowledge in <strong>JavaScript, Java, and web development</strong>. I'm a truly
                             <span class="text-everforest-green font-medium">hungry learner</span>, always eager to explore new concepts and paradigms.
                             नयाँ कुरा सिक्न र बुझ्नको लागि मेरो उत्साह कहिल्यै घट्दैन।
                         </p>
-                        <p class="text-base md:text-lg leading-relaxed text-everforest-light-text">
+                        <p class="text-base md:text-lg leading-relaxed text-everforest-light-text font-inter">
                             For me, <span class="text-everforest-blue font-medium">learning and programming aren't chores or studies</span>; they're fun explorations. Outside of code, you'll find me strategizing over a game of <strong>chess</strong>, immersing myself in new ideas through <strong>reading books</strong>, and simply <strong>learning about life</strong> itself.
                             जीवनबाट पनि निरन्तर सिक्दै छु, जस्तै कोडिङमा सिक्छु।
                         </p>
@@ -570,43 +616,43 @@
                 <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-10 mt-8">
                     <div class="skill-card" data-aos="zoom-in-up" data-aos-duration="600" data-aos-delay="100">
                         <span class="text-4xl md:text-5xl mb-2 md:mb-3">⚡</span>
-                        <h3 class="text-lg md:text-xl font-semibold text-everforest-orange">C/C++ Main</h3>
-                        <p class="text-xs md:text-sm text-everforest-light-text font-commit-mono">Low-level memory problems</p>
+                        <h3 class="text-lg md:text-xl font-semibold text-everforest-orange font-inter">C/C++ Main</h3>
+                        <p class="text-xs md:text-sm text-everforest-light-text font-spacemono">Low-level memory problems</p>
                     </div>
                     <div class="skill-card" data-aos="zoom-in-up" data-aos-duration="600" data-aos-delay="200">
                         <span class="text-4xl md:text-5xl mb-2 md:mb-3">🌐</span>
-                        <h3 class="text-lg md:text-xl font-semibold text-everforest-orange">Web Development</h3>
-                        <p class="text-xs md:text-sm text-everforest-light-text font-commit-mono">HTML, CSS, JavaScript, Vuejs</p>
+                        <h3 class="text-lg md:text-xl font-semibold text-everforest-orange font-inter">Web Development</h3>
+                        <p class="text-xs md:text-sm text-everforest-light-text font-spacemono">HTML, CSS, JavaScript, Vuejs</p>
                     </div>
                     <div class="skill-card" data-aos="zoom-in-up" data-aos-duration="600" data-aos-delay="300">
                         <span class="text-4xl md:text-5xl mb-2 md:mb-3">☕</span>
-                        <h3 class="text-lg md:text-xl font-semibold text-everforest-orange">Java</h3>
-                        <p class="text-xs md:text-sm text-everforest-light-text font-commit-mono">Object Oriented Erros</p>
+                        <h3 class="text-lg md:text-xl font-semibold text-everforest-orange font-inter">Java</h3>
+                        <p class="text-xs md:text-sm text-everforest-light-text font-spacemono">Object Oriented Erros</p>
                     </div>
                     <div class="skill-card" data-aos="zoom-in-up" data-aos-duration="600" data-aos-delay="400">
                         <span class="text-4xl md:text-5xl mb-2 md:mb-3">🔢</span>
-                        <h3 class="text-lg md:text-xl font-semibold text-everforest-orange">Numbers & Logic</h3>
-                        <p class="text-xs md:text-sm text-everforest-light-text font-commit-mono">Algorithms, problem-solving, headache</p>
+                        <h3 class="text-lg md:text-xl font-semibold text-everforest-orange font-inter">Numbers & Logic</h3>
+                        <p class="text-xs md:text-sm text-everforest-light-text font-spacemono">Algorithms, problem-solving, headache</p>
                     </div>
                     <div class="skill-card" data-aos="zoom-in-up" data-aos-duration="600" data-aos-delay="500">
                         <span class="text-4xl md:text-5xl mb-2 md:mb-3">🔌</span>
-                        <h3 class="text-lg md:text-xl font-semibold text-everforest-orange">Electrical Circuits</h3>
-                        <p class="text-xs md:text-sm text-everforest-light-text font-commit-mono">Hardware-software and 2nd degree burns</p>
+                        <h3 class="text-lg md:text-xl font-semibold text-everforest-orange font-inter">Electrical Circuits</h3>
+                        <p class="text-xs md:text-sm text-everforest-light-text font-spacemono">Hardware-software and 2nd degree burns</p>
                     </div>
                     <div class="skill-card" data-aos="zoom-in-up" data-aos-duration="600" data-aos-delay="600">
                         <span class="text-4xl md:text-5xl mb-2 md:mb-3">📦</span>
-                        <h3 class="text-lg md:text-xl font-semibold text-everforest-orange">Logistics & Systems</h3>
-                        <p class="text-xs md:text-sm text-everforest-light-text font-commit-mono">Efficiency V + Mending</p>
+                        <h3 class="text-lg md:text-xl font-semibold text-everforest-orange font-inter">Logistics & Systems</h3>
+                        <p class="text-xs md:text-sm text-everforest-light-text font-spacemono">Efficiency V + Mending</p>
                     </div>
                     <div class="skill-card" data-aos="zoom-in-up" data-aos-duration="600" data-aos-delay="700">
                         <span class="text-4xl md:text-5xl mb-2 md:mb-3">🎨</span>
-                        <h3 class="text-lg md:text-xl font-semibold text-everforest-orange">Qt</h3>
-                        <p class="text-xs md:text-sm text-everforest-light-text font-commit-mono">Not good at it, tara I use it :)</p>
+                        <h3 class="text-lg md:text-xl font-semibold text-everforest-orange font-inter">Qt</h3>
+                        <p class="text-xs md:text-sm text-everforest-light-text font-spacemono">Not good at it, tara I use it :)</p>
                     </div>
                      <div class="skill-card" data-aos="zoom-in-up" data-aos-duration="600" data-aos-delay="800">
                         <span class="text-4xl md:text-5xl mb-2 md:mb-3">🤔</span>
-                        <h3 class="text-lg md:text-xl font-semibold text-everforest-orange">Philosophy</h3>
-                        <p class="text-xs md:text-sm text-everforest-light-text font-commit-mono">Thinking about thinking</p>
+                        <h3 class="text-lg md:text-xl font-semibold text-everforest-orange font-inter">Philosophy</h3>
+                        <p class="text-xs md:text-sm text-everforest-light-text font-spacemono">Thinking about thinking</p>
                     </div>
                 </div>
             </div>
@@ -616,10 +662,10 @@
              <div class="max-w-6xl mx-auto text-center relative z-10">
                 <h2 class="text-3xl md:text-4xl font-bold mb-12 md:mb-16 text-everforest-text" data-aos="fade-down" data-aos-duration="1000">My Projects</h2>
                 <div class="mt-8 p-6 md:p-10 bg-everforest-darker glass-effect rounded-xl shadow-lg border border-everforest-blue" data-aos="zoom-in-up" data-aos-duration="1000" data-aos-delay="200">
-                    <p class="text-xl md:text-3xl text-everforest-text mb-4 font-commit-mono">
+                    <p class="text-xl md:text-3xl text-everforest-text mb-4 font-spacemono">
                         Ill do it soon.. Source: Trust me Bro! The ones I have done aren't as perfect as I want them to be.
                     </p>
-                    <p class="text-base md:text-lg text-everforest-light-text font-commit-mono">
+                    <p class="text-base md:text-lg text-everforest-light-text font-spacemono">
                         Or they are barely usable by any other human being :(
                     </p>
                 </div>
@@ -634,11 +680,11 @@
         <section id="boron" class="py-20 md:py-24 px-4 md:px-6 relative overflow-hidden mx-4 md:mx-auto max-w-6xl my-12 rounded-2xl">
             <div class="max-w-4xl mx-auto text-center relative z-10">
                 <h2 class="text-3xl md:text-4xl font-bold mb-12 md:mb-16 text-everforest-text" data-aos="fade-down" data-aos-duration="1000">Let's Connect!</h2>
-                <p class="text-base md:text-xl text-everforest-light-text mb-6 md:mb-8 leading-relaxed font-commit-mono" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <p class="text-base md:text-xl text-everforest-light-text mb-6 md:mb-8 leading-relaxed font-spacemono" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
                     Whether it's for a collaboration, a coding challenge, or just a friendly chat about digital logic or life, I'm all bored!
                 </p>
                 <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-                    <a href="mailto:notquiteready@soon.com" class="text-everforest-blue hover:text-everforest-green text-xl md:text-2xl font-semibold hover:underline transition-colors duration-300 block mb-6">
+                    <a href="mailto:notquiteready@soon.com" class="text-everforest-blue hover:text-everforest-green text-xl md:text-2xl font-semibold hover:underline transition-colors duration-300 block mb-6 font-inter">
                         notquiteready@soon.com
                     </a>
                 </div>
@@ -647,8 +693,8 @@
     </main>
 
     <footer class="text-center py-6 md:py-8 border-t border-everforest-medium">
-        <p class="text-sm text-everforest-light-text" data-aos="fade-up" data-aos-duration="600">Coded with curiosity and dedication. &copy; <span id="current-year"></span> Sulav Thapa. All rights reserved.</p>
-        <div class="flex justify-center space-x-6 mt-4 font-commit-mono text-everforest-text text-lg" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
+        <p class="text-sm text-everforest-light-text font-inter" data-aos="fade-up" data-aos-duration="600">Coded with curiosity and dedication. &copy; <span id="current-year"></span> Sulav Thapa. All rights reserved.</p>
+        <div class="flex justify-center space-x-6 mt-4 font-spacemono text-everforest-text text-lg" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
             <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="nav-link">GitHub</a>
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="nav-link">LinkedIn</a>
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="nav-link">Twitter</a>
@@ -822,6 +868,7 @@
             const musicButton = document.getElementById('header-music-button');
             const allNavLinks = document.querySelectorAll('a[href^="#"]');
             const animatedTagline = document.getElementById('animated-tagline');
+            const pfpImage = document.querySelector('.pfp-image');
             
             const audio = new Audio('forest-lofi.mp3'); 
             audio.loop = true;
@@ -897,7 +944,7 @@
                         e.preventDefault();
                         const targetElement = document.querySelector(href);
                         if (targetElement) {
-                            gsap.to(window, { duration: 1.0, scrollTo: { y: targetElement, offsetY: 80 }, ease: 'power3.inOut' });
+                            gsap.to(window, { duration: 1.2, scrollTo: { y: targetElement, offsetY: 80 }, ease: 'power4.inOut' });
                             if (mobileMenuOverlay && !mobileMenuOverlay.classList.contains('hidden')) closeMobileMenu();
                         }
                     }
@@ -912,15 +959,25 @@
 
             if (currentYearSpan) currentYearSpan.textContent = new Date().getFullYear();
 
+            if (pfpImage) {
+                pfpImage.classList.add('idle-animation');
+            }
+
             const scene = new THREE.Scene();
             const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            const renderer = new THREE.WebGLRenderer({ antialias: false, alpha: true }); 
             renderer.setSize(window.innerWidth, window.innerHeight);
             renderer.setClearColor(0x000000, 0); 
             document.getElementById('three-bg').appendChild(renderer.domElement);
-
+            
             const particles = new THREE.Group();
             scene.add(particles);
+
+            const particleCount = 360;
+            const particleVertices = [];
+            const particleSize = 0.36; 
+            const connectionDistance = 22;
+            const maxOpacity = 0.065;
 
             const colors = [
                 new THREE.Color(0x89b482), 
@@ -929,32 +986,47 @@
                 new THREE.Color(0xa79a83)
             ];
 
-            const particleCount = 300; 
-            const geometry = new THREE.SphereGeometry(0.3, 16, 16); 
+            const particleMaterial = new THREE.MeshBasicMaterial({
+                transparent: true,
+                blending: THREE.AdditiveBlending 
+            });
+
+            const particleGeometry = new THREE.SphereGeometry(particleSize, 8, 8); 
 
             for (let i = 0; i < particleCount; i++) {
-                const material = new THREE.MeshBasicMaterial({
-                    color: colors[Math.floor(Math.random() * colors.length)],
-                    transparent: true,
-                    opacity: Math.random() * 0.5 + 0.1, 
-                    blending: THREE.AdditiveBlending 
-                });
-                const particle = new THREE.Mesh(geometry, material);
-                particle.position.set(
-                    (Math.random() - 0.5) * 200,
-                    (Math.random() - 0.5) * 200,
-                    (Math.random() - 0.5) * 200
-                );
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                const particle = new THREE.Mesh(particleGeometry, particleMaterial.clone());
+                particle.material.color = color;
+                particle.material.opacity = Math.random() * 0.5 + 0.1;
+                
+                const x = (Math.random() - 0.5) * 200;
+                const y = (Math.random() - 0.5) * 200;
+                const z = (Math.random() - 0.5) * 200;
+                particle.position.set(x, y, z);
+                
                 particle.userData.velocity = new THREE.Vector3(
-                    (Math.random() - 0.5) * 0.02,
-                    (Math.random() - 0.5) * 0.02,
-                    (Math.random() - 0.5) * 0.02
+                    (Math.random() - 0.5) * 0.01,
+                    (Math.random() - 0.5) * 0.01,
+                    (Math.random() - 0.5) * 0.01
                 );
+                
                 particles.add(particle);
+                particleVertices.push(particle.position);
             }
 
-            camera.position.z = 50;
+            const lineGeometry = new THREE.BufferGeometry();
+            const linePositions = new Float32Array(particleCount * particleCount * 3);
+            lineGeometry.setAttribute('position', new THREE.BufferAttribute(linePositions, 3).setUsage(THREE.DynamicDrawUsage));
+            const lineMaterial = new THREE.LineBasicMaterial({
+                color: 0x7fbbb3,
+                transparent: true,
+                opacity: maxOpacity, 
+                blending: THREE.AdditiveBlending
+            });
+            const lineMesh = new THREE.LineSegments(lineGeometry, lineMaterial);
+            scene.add(lineMesh);
 
+            camera.position.z = 50;
             let mouseX = 0;
             let mouseY = 0;
 
@@ -968,14 +1040,35 @@
 
                 particles.children.forEach(particle => {
                     particle.position.add(particle.userData.velocity);
-
                     if (Math.abs(particle.position.x) > 100) particle.position.x *= -1;
                     if (Math.abs(particle.position.y) > 100) particle.position.y *= -1;
                     if (Math.abs(particle.position.z) > 100) particle.position.z *= -1;
                 });
+                
+                let lineIndex = 0;
+                
+                for(let i = 0; i < particleCount; i++) {
+                    for(let j = i + 1; j < particleCount; j++) {
+                        const dist = particleVertices[i].distanceTo(particleVertices[j]);
+                        if(dist < connectionDistance) {
+                            linePositions[lineIndex++] = particleVertices[i].x;
+                            linePositions[lineIndex++] = particleVertices[i].y;
+                            linePositions[lineIndex++] = particleVertices[i].z;
+                            linePositions[lineIndex++] = particleVertices[j].x;
+                            linePositions[lineIndex++] = particleVertices[j].y;
+                            linePositions[lineIndex++] = particleVertices[j].z;
+                        }
+                    }
+                }
+                
+                lineGeometry.setDrawRange(0, lineIndex / 3); 
+                lineGeometry.attributes.position.needsUpdate = true;
+                
+                const time = Date.now() * 0.0002;
+                lineMesh.material.opacity = (Math.sin(time) * 0.25 + 0.75) * maxOpacity;
 
-                camera.position.x += (mouseX * 15 - camera.position.x) * 0.02;
-                camera.position.y += (-mouseY * 15 - camera.position.y) * 0.02;
+                camera.position.x += (mouseX * 10 - camera.position.x) * 0.05; 
+                camera.position.y += (-mouseY * 10 - camera.position.y) * 0.05; 
                 camera.lookAt(scene.position);
 
                 renderer.render(scene, camera);

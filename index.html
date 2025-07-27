@@ -509,6 +509,125 @@
         .btn-primary.idle-animation {
             animation: button-idle 3s ease-in-out infinite;
         }
+
+        /* Mobile Optimizations */
+        @media (max-width: 768px) {
+            .logo-text {
+                font-size: 1.4rem;
+            }
+            
+            .header-icon-btn {
+                width: 38px;
+                height: 38px;
+            }
+            
+            .hero-text-container h1 {
+                font-size: 3.5rem !important;
+                line-height: 1.1;
+            }
+            
+            #animated-tagline {
+                font-size: 1.2rem;
+            }
+            
+            .btn-primary, .btn-secondary {
+                padding: 0.7rem 1.8rem;
+                font-size: 0.95rem;
+            }
+            
+            .pfp-image {
+                width: 180px !important;
+                height: 180px !important;
+            }
+            
+            .skill-card {
+                padding: 1.5rem;
+            }
+            
+            .skill-card span {
+                font-size: 2.5rem;
+            }
+            
+            .skill-card h3 {
+                font-size: 1rem;
+            }
+            
+            .skill-card p {
+                font-size: 0.75rem;
+            }
+            
+            #mobile-menu-overlay a {
+                font-size: 1.8rem;
+            }
+            
+            .terminal-window {
+                width: 100%;
+                max-width: 100%;
+                border-radius: 0;
+            }
+            
+            .terminal-body {
+                font-size: 0.8rem;
+            }
+            
+            .terminal-title {
+                font-size: 0.7rem;
+            }
+            
+            footer .nav-link {
+                font-size: 0.9rem;
+            }
+            
+            /* Stack sections on mobile */
+            #helium .grid-cols-1 {
+                display: flex;
+                flex-direction: column;
+            }
+            
+            #helium .order-1 {
+                order: 1;
+            }
+            
+            #helium .order-2 {
+                order: 2;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text-container h1 {
+                font-size: 2.8rem !important;
+            }
+            
+            #animated-tagline {
+                font-size: 1rem;
+            }
+            
+            .skill-card {
+                padding: 1.2rem;
+            }
+            
+            .skill-card span {
+                font-size: 2rem;
+            }
+            
+            .btn-primary, .btn-secondary {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .pfp-image {
+                width: 150px !important;
+                height: 150px !important;
+            }
+            
+            #mobile-menu-overlay a {
+                font-size: 1.5rem;
+            }
+            
+            .terminal-window {
+                height: 70vh;
+            }
+        }
     </style>
 </head>
 <body class="relative font-inter">

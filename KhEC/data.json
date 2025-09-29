@@ -1,0 +1,190 @@
+{
+  "gallery": [
+    {
+      "image": "https://images.unsplash.com/photo-1758846182558-ebf26988c813?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "title": "Apple",
+      "description": "abcd"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1604866830893-c13cafa515d5?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "title": "library ig",
+      "description": "idk"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "title": "Lab",
+      "description": "adasdasd"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2068&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "title": "server",
+      "description": "asns"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "title": "Tesadasdg",
+      "description": "Casdasdads"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1592659762303-90081d34b277?q=80&w=1546&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "title": "Aadsad",
+      "description": "Celasddsas"
+    }
+  ],
+  "services": [
+    {
+      "title": "Lorem Ipsum Dolor",
+      "icon": "Lorem Ipsum Dolor Sit Amet",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+    },
+    {
+      "title": "Consectetur Adipiscing",
+      "icon": "https://icons8.com/icon/jvEosu3BEMyB/image-not-available",
+      "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident."
+    },
+    {
+      "title": "Sed Do Eiusmod",
+      "icon": "https://icons8.com/icon/jvEosu3BEMyB/image-not-available",
+      "description": "Sunt in culpa qui officia deserunt mollit anim id est laborum. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit."
+    },
+    {
+      "title": "Tempor Incididunt",
+      "icon": "https://icons8.com/icon/jvEosu3BEMyB/image-not-available",
+      "description": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore."
+    },
+    {
+      "title": "Ut Labore Et Dolore",
+      "icon": "https://icons8.com/icon/jvEosu3BEMyB/image-not-available",
+      "description": "Quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit."
+    },
+    {
+      "title": "Magna Aliqua Ut",
+      "icon": "https://icons8.com/icon/jvEosu3BEMyB/image-not-available",
+      "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias."
+    }
+  ],
+  "events": [
+    {
+      "date": "2023-10-15",
+      "title": "Lorem Ipsum Dolor Sit",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "time": "10:00 AM - 4:00 PM",
+      "location": "Aliquam Erat Volutpat",
+      "type": "upcoming",
+      "category": "workshop"
+    },
+    {
+      "date": "2023-10-25",
+      "title": "Consectetur Adipiscing",
+      "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "time": "2:00 PM - 4:00 PM",
+      "location": "Duis Aute Irure",
+      "type": "upcoming",
+      "category": "seminar"
+    },
+    {
+      "date": "2023-11-10",
+      "title": "Sed Do Eiusmod Tempor",
+      "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "time": "9:00 AM (Day 1) - 9:00 AM (Day 2)",
+      "location": "Excepteur Sint Occaecat",
+      "type": "upcoming",
+      "category": "hackathon"
+    },
+    {
+      "date": "2023-10-05",
+      "title": "Incididunt Ut Labore",
+      "description": "Sunt in culpa qui officia deserunt mollit anim id est laborum. Nemo enim ipsam voluptatem quia voluptas.",
+      "time": "1:00 PM - 5:00 PM",
+      "location": "Quia Voluptas Sit",
+      "type": "ongoing",
+      "category": "workshop"
+    },
+    {
+      "date": "2023-12-05",
+      "title": "Et Dolore Magna Aliqua",
+      "description": "Quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.",
+      "time": "10:00 AM - 4:00 PM",
+      "location": "Nisi Ut Aliquid",
+      "type": "upcoming",
+      "category": "career"
+    }
+  ],
+  "resources": [
+    { 
+      "name": "GeeksforGeeks", 
+      "url": "https://www.geeksforgeeks.org", 
+      "icon": "https://icons8.com/icon/jvEosu3BEMyB/image-not-available", 
+      "description": "Comprehensive platform for computer science and programming resources." 
+    },
+    { 
+      "name": "W3Schools", 
+      "url": "https://www.w3schools.com", 
+      "icon": "https://icons8.com/icon/jvEosu3BEMyB/image-not-available", 
+      "description": "Web development tutorials and references for all web technologies." 
+    },
+    { 
+      "name": "GitHub", 
+      "url": "https://github.com", 
+      "icon": "https://icons8.com/icon/jvEosu3BEMyB/image-not-available", 
+      "description": "Platform for version control and collaboration on software projects." 
+    },
+    { 
+      "name": "freeCodeCamp", 
+      "url": "https://www.freecodecamp.org", 
+      "icon": "https://icons8.com/icon/jvEosu3BEMyB/image-not-available", 
+      "description": "Learn to code for free with interactive coding challenges and projects." 
+    },
+    { 
+      "name": "YouTube EDU", 
+      "url": "https://www.youtube.com/education", 
+      "icon": "https://icons8.com/icon/jvEosu3BEMyB/image-not-available", 
+      "description": "Educational channels offering tutorials on various programming topics." 
+    },
+    { 
+      "name": "MDN Web Docs", 
+      "url": "https://developer.mozilla.org", 
+      "icon": "https://icons8.com/icon/jvEosu3BEMyB/image-not-available", 
+      "description": "Resources for developers, by developers with detailed documentation." 
+    }
+  ],
+  "goals": [
+    { 
+      "title": "Skill Development", 
+      "icon": "https://icons8.com/icon/jvEosu3BEMyB/image-not-available", 
+      "description": "Provide comprehensive learning opportunities to enhance technical skills and knowledge in cutting-edge technologies." 
+    },
+    { 
+      "title": "Community Building", 
+      "icon": "https://icons8.com/icon/jvEosu3BEMyB/image-not-available", 
+      "description": "Foster a strong, inclusive community where members can collaborate, network, and support each other's growth." 
+    },
+    { 
+      "title": "Innovation & Creativity", 
+      "icon": "https://icons8.com/icon/jvEosu3BEMyB/image-not-available", 
+      "description": "Encourage innovative thinking and creative problem-solving through hands-on projects and challenges." 
+    },
+    { 
+      "title": "Career Advancement", 
+      "icon": "https://icons8.com/icon/jvEosu3BEMyB/image-not-available", 
+      "description": "Bridge the gap between academia and industry by providing career guidance, mentorship, and industry exposure." 
+    },
+    { 
+      "title": "Social Impact", 
+      "icon": "https://icons8.com/icon/jvEosu3BEMyB/image-not-available", 
+      "description": "Leverage technology to address real-world problems and create positive social impact through community projects." 
+    }
+  ],
+  "contact": {
+    "location": "Khwopa Engineering College, Libali, Bhaktapur, Nepal",
+    "email": "itcircle@khec.edu.np",
+    "phone": "+977 1 6612345"
+  },
+  "socialLinks": [
+    { "platform": "Facebook", "url": "#", "icon": "https://icons8.com/icon/jvEosu3BEMyB/image-not-available" },
+    { "platform": "Twitter", "url": "#", "icon": "https://icons8.com/icon/jvEosu3BEMyB/image-not-available" },
+    { "platform": "Instagram", "url": "#", "icon": "https://icons8.com/icon/jvEosu3BEMyB/image-not-available" },
+    { "platform": "LinkedIn", "url": "#", "icon": "https://icons8.com/icon/jvEosu3BEMyB/image-not-available" },
+    { "platform": "GitHub", "url": "#", "icon": "https://icons8.com/icon/jvEosu3BEMyB/image-not-available" }
+  ]
+}

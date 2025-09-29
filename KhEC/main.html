@@ -1,0 +1,2419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KhEC IT Circle</title>
+    <meta name="description" content="KhEC IT Circle is a community of tech enthusiasts at Khwopa Engineering College. Join us to learn, collaborate, and innovate.">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Adwaita+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ------------------------- */
+        /* CUSTOM PROPERTIES     */
+        /* ------------------------- */
+        :root {
+            /* CORE BRAND COLORS */
+            --brand-teal: #3B9C9C;
+            --brand-brown: #8B7355;
+            --brand-ivory: #FFF8E1;
+            --brand-gold: #D4AF37;
+            --brand-green: #2E8B57;
+
+            /* LIGHT MODE */
+            --primary-light: var(--brand-teal);
+            --secondary-light: var(--brand-brown);
+            --bg-light: #ffffff;
+            --surface-light: var(--brand-ivory);
+            --text-primary-light: #2C1810;
+            --text-secondary-light: #5D4037;
+            --border-light: #D7CCC8;
+            --accent-light: var(--brand-gold);
+
+            /* DARK MODE */
+            --primary-dark: var(--brand-teal);
+            --secondary-dark: var(--brand-brown);
+            --bg-dark: #121212;
+            --surface-dark: #1E1E1E;
+            --text-primary-dark: #F7FAFC;
+            --text-secondary-dark: #A0AEC0;
+            --border-dark: #2D3748;
+            --accent-dark: var(--brand-gold);
+
+            /* GLASSMORPHISM */
+            --glass-bg-light-theme: rgba(255, 248, 225, 0.3);
+            --glass-border-light-theme: rgba(255, 255, 255, 0.5);
+            --glass-bg-dark-theme: rgba(30, 30, 30, 0.4);
+            --glass-border-dark-theme: rgba(255, 255, 255, 0.15);
+
+            /* SEMANTIC STATES */
+            --success: #38A169;
+            --warning: #DD6B20;
+            --error: #E53E3E;
+            --info: #3182CE;
+
+            /* CURRENT THEME VARIABLES (default to light) */
+            --primary: var(--primary-light);
+            --secondary: var(--secondary-light);
+            --bg: var(--bg-light);
+            --surface: var(--surface-light);
+            --text-primary: var(--text-primary-light);
+            --text-secondary: var(--text-secondary-light);
+            --border: var(--border-light);
+            --glass-bg: var(--glass-bg-light-theme);
+            --glass-border: var(--glass-border-light-theme);
+            --accent: var(--accent-light);
+
+            /* OTHER VARIABLES */
+            --font-primary: 'Ubuntu', sans-serif;
+            --font-secondary: 'Adwaita Sans', sans-serif;
+            --container-width: 1400px;
+            --header-height: 80px;
+            --transition-standard: all 0.3s ease;
+            --border-radius: 16px;
+            --border-radius-lg: 24px;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 3rem;
+            --spacing-xl: 5rem;
+        }
+
+        [data-theme="dark"] {
+            --primary: var(--primary-dark);
+            --secondary: var(--secondary-dark);
+            --bg: var(--bg-dark);
+            --surface: var(--surface-dark);
+            --text-primary: var(--text-primary-dark);
+            --text-secondary: var(--text-secondary-dark);
+            --border: var(--border-dark);
+            --glass-bg: var(--glass-bg-dark-theme);
+            --glass-border: var(--glass-border-dark-theme);
+            --accent: var(--accent-dark);
+        }
+
+        /* ------------------------- */
+        /* BASE STYLES           */
+        /* ------------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: var(--header-height);
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-family: var(--font-secondary);
+            overflow-x: hidden;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-primary);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .container {
+            width: 90%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-sm);
+        }
+
+        section {
+            padding: var(--spacing-xl) 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        section:nth-child(even) {
+            background-color: var(--surface);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            margin-bottom: var(--spacing-sm);
+            position: relative;
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+        }
+
+        /* ------------------------- */
+        /* SUBTLE BACKGROUND ANIMATIONS */
+        /* ------------------------- */
+        .section-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .floating-dot {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--primary);
+            opacity: 0.05;
+            animation: float-dot 15s infinite ease-in-out;
+        }
+
+        @keyframes float-dot {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+            25% {
+                transform: translate(30px, 30px);
+            }
+            50% {
+                transform: translate(60px, 0);
+            }
+            75% {
+                transform: translate(30px, -30px);
+            }
+        }
+
+        /* ------------------------- */
+        /* NEW GALLERY STYLES       */
+        /* ------------------------- */
+        .gallery {
+            padding: var(--spacing-xl) 0;
+            position: relative;
+        }
+
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-sm);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            transition: var(--transition-standard);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.05);
+        }
+
+        /* ------------------------- */
+        /* JOIN US WITH RULES       */
+        /* ------------------------- */
+        .join-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .join-form-compact {
+            background: var(--glass-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group-compact {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .form-group-compact label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
+
+        .form-group-compact input,
+        .form-group-compact textarea,
+        .form-group-compact select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            background: var(--bg);
+            color: var(--text-primary);
+            font-family: inherit;
+            transition: var(--transition-standard);
+        }
+
+        .form-group-compact input:focus,
+        .form-group-compact textarea:focus,
+        .form-group-compact select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(59, 156, 156, 0.2);
+        }
+
+        .form-group-compact textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .join-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .rules-section {
+            background: var(--glass-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .rules-section h3 {
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .rules-list {
+            list-style: none;
+        }
+
+        .rules-list li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .rules-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* ------------------------- */
+        /* ENHANCED EVENTS STYLES   */
+        /* ------------------------- */
+        .events-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .event-tab {
+            padding: 12px 24px;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            cursor: pointer;
+            color: var(--text-secondary);
+            border-bottom: 3px solid transparent;
+            transition: var(--transition-standard);
+        }
+
+        .event-tab.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .events-container-enhanced {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .calendar-compact {
+            background: var(--glass-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .calendar-header-compact {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .calendar-nav-compact {
+            display: flex;
+            gap: 10px;
+        }
+
+        .calendar-nav-compact button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition-standard);
+        }
+
+        .calendar-nav-compact button:hover {
+            background: var(--secondary);
+        }
+
+        .calendar-grid-compact {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+        }
+
+        .calendar-day-header-compact {
+            text-align: center;
+            padding: 8px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .calendar-day-compact {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+            font-size: 0.9rem;
+        }
+
+        .calendar-day-compact:hover {
+            background: rgba(59, 156, 156, 0.1);
+        }
+
+        .calendar-day-compact.has-event {
+            background: rgba(59, 156, 156, 0.15);
+            font-weight: 600;
+        }
+
+        .calendar-day-compact.has-event::after {
+            content: '';
+            position: absolute;
+            bottom: 3px;
+            width: 4px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+
+        .calendar-day-compact.today {
+            background: var(--accent);
+            color: white;
+            font-weight: bold;
+        }
+
+        .calendar-day-compact.selected {
+            background: var(--primary);
+            color: white;
+        }
+
+        .events-sidebar {
+            background: var(--glass-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(20px);
+            max-height: 400px;
+            overflow-y: auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .event-category {
+            margin-bottom: 20px;
+        }
+
+        .event-category h4 {
+            margin-bottom: 10px;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .event-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .event-card {
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+            transition: var(--transition-standard);
+        }
+
+        .event-card:hover {
+            transform: translateX(5px);
+        }
+
+        .event-card.upcoming {
+            border-left-color: var(--success);
+        }
+
+        .event-card.ongoing {
+            border-left-color: var(--warning);
+        }
+
+        .event-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 5px;
+        }
+
+        /* ------------------------- */
+        /* GLASSMORPHISM STYLES  */
+        /* ------------------------- */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: var(--transition-standard);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        /* ------------------------- */
+        /* HEADER STYLES         */
+        /* ------------------------- */
+        header {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition-standard);
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+.logo-icon {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white; 
+    font-weight: bold; 
+    font-size: 20px; 
+    box-shadow: 0 4px 15px rgba(59, 156, 156, 0.3);
+    transition: var(--transition-standard);
+}
+
+.custom-logo-img {
+    max-width: 100%;
+    max-height: 100%;
+    width: 50px;
+    height: 50px;
+    display: block; 
+    border-radius: 12px;
+}
+
+        .logo:hover .logo-icon {
+            transform: rotate(15deg);
+        }
+
+        .logo-text {
+            font-weight: 700;
+            color: var(--text-primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            min-width: 0;
+        }
+
+        .logo-text span {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: var(--transition-standard);
+            position: relative;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        nav a:hover::after {
+            width: 80%;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: var(--transition-standard);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(59, 156, 156, 0.3);
+            font-size: 0.9rem;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(59, 156, 156, 0.4);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-primary);
+            z-index: 1001;
+            background: none;
+            border: none;
+            margin-left: auto;
+        }
+
+        /* ------------------------- */
+        /* HERO SECTION          */
+        /* ------------------------- */
+        .hero {
+            min-height: 100vh;
+            padding: 180px 0 100px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--bg) 0%, var(--surface) 100%);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-size: 3.8rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-text h1 span {
+            color: var(--brand-green);
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            color: var(--text-secondary);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition-standard);
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(59, 156, 156, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(59, 156, 156, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(59, 156, 156, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .hero-image {
+            position: relative;
+            text-align: center;
+        }
+
+        .hero-image-placeholder {
+            width: 100%;
+            height: 450px;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            animation: float-image 6s ease-in-out infinite;
+        }
+
+        .hero-image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .hero-image-placeholder:hover img {
+            transform: scale(1.05);
+        }
+
+        @keyframes float-image {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* ------------------------- */
+        /* ABOUT SECTION          */
+        /* ------------------------- */
+        .about {
+            position: relative;
+        }
+
+        .about-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 25px;
+            background: var(--glass-bg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition-standard);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(20px);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        .about-image-placeholder {
+            width: 100%;
+            height: 450px;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image-placeholder:hover img {
+            transform: scale(1.05);
+        }
+
+        /* ------------------------- */
+        /* SERVICES SECTION       */
+        /* ------------------------- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--glass-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition-standard);
+            padding: 35px;
+            text-align: center;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(20px);
+            position: relative;
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            color: white;
+            font-size: 35px;
+            box-shadow: 0 5px 15px rgba(59, 156, 156, 0.3);
+            transition: var(--transition-standard);
+        }
+
+        .service-card:hover .service-icon {
+            transform: rotate(15deg);
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.6rem;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        /* ------------------------- */
+        /* RESOURCES SECTION       */
+        /* ------------------------- */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .resource-card {
+            background: var(--glass-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(20px);
+            transition: var(--transition-standard);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 350px;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .resource-icon {
+            width: 90px;
+            height: 90px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            color: white;
+            font-size: 40px;
+            box-shadow: 0 5px 15px rgba(59, 156, 156, 0.3);
+            transition: var(--transition-standard);
+        }
+
+        .resource-card:hover .resource-icon {
+            transform: rotate(15deg);
+        }
+
+        .resource-card h3 {
+            margin-bottom: 15px;
+            color: var(--text-primary);
+            font-size: 1.4rem;
+        }
+
+        .resource-card p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            flex-grow: 1;
+            font-size: 1.05rem;
+        }
+
+        .resource-link {
+            display: inline-block;
+            padding: 12px 25px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            transition: var(--transition-standard);
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 3px 10px rgba(59, 156, 156, 0.3);
+        }
+
+        .resource-link:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(139, 115, 85, 0.4);
+        }
+
+        /* ------------------------- */
+        /* GOALS SECTION           */
+        /* ------------------------- */
+        .goals-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .goal-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            padding: 25px;
+            background: var(--glass-bg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(20px);
+            transition: var(--transition-standard);
+        }
+
+        .goal-item:hover {
+            transform: translateX(15px);
+        }
+
+        .goal-icon {
+            width: 70px;
+            height: 70px;
+            margin-right: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            color: white;
+            font-size: 28px;
+            box-shadow: 0 5px 15px rgba(59, 156, 156, 0.3);
+            transition: var(--transition-standard);
+        }
+
+        .goal-item:hover .goal-icon {
+            transform: rotate(15deg);
+        }
+
+        .goal-content h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .goal-content p {
+            font-size: 1.1rem;
+        }
+
+        /* ------------------------- */
+        /* FOOTER STYLES          */
+        /* ------------------------- */
+        footer {
+            background: var(--surface);
+            color: var(--text-primary);
+            padding: 70px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-column p {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 1.05rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: rgba(59, 156, 156, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            transition: all 0.3s;
+            text-decoration: none;
+            backdrop-filter: blur(10px);
+            font-size: 18px;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        /* ------------------------- */
+        /* THEME TOGGLE           */
+        /* ------------------------- */
+        .theme-toggle {
+            position: relative;
+            width: 70px;
+            height: 35px;
+            background: var(--surface);
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            padding: 0 5px;
+            backdrop-filter: blur(10px);
+            border: none;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .toggle-thumb {
+            width: 27px;
+            height: 27px;
+            background: var(--primary);
+            border-radius: 50%;
+            position: absolute;
+            left: 4px;
+            transition: transform 0.3s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        [data-theme="dark"] .toggle-thumb {
+            transform: translateX(35px);
+        }
+
+        .toggle-icons {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        .toggle-icons i {
+            font-size: 16px;
+            color: var(--text-secondary);
+        }
+
+        /* ------------------------- */
+        /* SCROLL TO TOP          */
+        /* ------------------------- */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-standard);
+            z-index: 100;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: none;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-5px);
+            background: var(--secondary);
+        }
+
+        /* ------------------------- */
+        /* RESPONSIVE DESIGN      */
+        /* ------------------------- */
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 1000px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-content,
+            .about-content,
+            .events-container-enhanced,
+            .join-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                width: 100%;
+                background: var(--glass-bg);
+                padding: 20px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                z-index: 999;
+                backdrop-filter: blur(20px);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero {
+                padding: 150px 0 80px;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 2.3rem;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .goal-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .goal-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+
+            .toggle-icons {
+                display: none;
+            }
+            
+            .join-options {
+                grid-template-columns: 1fr;
+            }
+
+            .events-tabs {
+                flex-wrap: wrap;
+            }
+
+            .events-container-enhanced {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .logo-text {
+                font-size: 22px;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Backgrounds for Each Section -->
+    <div class="section-bg" id="heroBg"></div>
+    <div class="section-bg" id="aboutBg"></div>
+    <div class="section-bg" id="servicesBg"></div>
+    <div class="section-bg" id="eventsBg"></div>
+    <div class="section-bg" id="resourcesBg"></div>
+    <div class="section-bg" id="goalsBg"></div>
+    <div class="section-bg" id="joinBg"></div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
+    </button>
+
+    <!-- Header -->
+<header id="header" role="banner">
+        <div class="container header-container">
+            <a href="#" class="logo" aria-label="KhEC IT Circle Home">
+                <div class="logo-icon" aria-hidden="true">
+                    <img 
+                        src="https://media.discordapp.net/attachments/1391369591493496884/1421391569172566016/ITCircle_Official_logo.png?ex=68da2f0e&is=68d8dd8e&hm=6590f963c4918079802c1cc3608f55bacb3f4d3eaa1690d420bd2bdc340a7859&amp;=&amp;format=webp&amp;quality=lossless&amp;width=1304&amp;height=1304" 
+                        alt="KhEC IT Circle Official Logo" 
+                        class="custom-logo-img"
+                    >
+                </div>
+                <div class="logo-text">KhEC <span>IT Circle</span></div>
+            </a>
+            <button class="mobile-menu" id="mobileMenu" aria-label="Toggle navigation menu" aria-expanded="false">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
+            <nav role="navigation" aria-label="Main navigation">
+                <ul id="navMenu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                    <li><a href="#goals">Goals</a></li>
+                    <li><a href="#join" class="nav-cta"><i class="fas fa-user-plus"></i> Join Us</a></li>
+                    <li>
+                        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                            <div class="toggle-thumb"></div>
+                            <div class="toggle-icons">
+                                <i class="fas fa-sun" aria-hidden="true"></i>
+                                <i class="fas fa-moon" aria-hidden="true"></i>
+                            </div>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>Empowering <span>Technology Enthusiasts</span> at KhEC</h1>
+                        <p>Circle completely built & maintained by the Students for the Students. Sabai jana lai swagat xa, we dont care if a project is within scope of a course.. We just do it cuz its fun to learn!</p>
+                        <div class="hero-buttons">
+                            <a href="#about" class="btn btn-primary">Explore More</a>
+                            <a href="#join" class="btn btn-secondary">Join Our Community</a>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <div class="hero-image-placeholder">
+                            <img src="https://wikiwandv2-19431.kxcdn.com/_next/image?url=https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Khwopa_College_of_Enigeering.jpg/640px-Khwopa_College_of_Enigeering.jpg&w=640&q=50">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about" id="about">
+            <div class="about-bg"></div>
+            <div class="container">
+                <div class="section-title">
+                    <h2>About KhEC IT Circle</h2>
+                    <p>We are a community of passionate technology enthusiasts dedicated to learning, innovation, and collaboration.</p>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Learning Together</h3>
+                        <p>हामी ख्वप इन्जिनियरिङ कलेजका विद्यार्थीहरूलाई IT सँग सम्बन्धित क्षेत्रमा अझै धेरै कुराहरू सिक्ने इच्छा भएकाले यो समूह बनाएका हौँ। अहिलेको समयमा पाठ्यक्रम मात्र पूरा गरेर पुग्दैन रहेछ, त्यसैले हामीले थप कुराहरू सिकौँ, सहकार्य गरौँ र नयाँ विषयहरूका बारेमा सोचौँ भन्ने उद्देश्यले यो समूहको सुरुवात गरेका हौँ।</p>
+                        <p>हाम्रो मुख्य लक्ष्य भनेको चल्तीका विषयहरू, नयाँ विचारहरू र जटिल विषयहरू सबैलाई मिलेर पढ्ने र बुझ्ने हो। बाहिरका शिक्षकहरू ल्याएर होस् वा आफैँ पाठ्यक्रम बनाएर होस्, हामी मिलेर जुनसुकै कुरा पनि सिक्न सक्छौँ।</p>
+                        <p>Basically, a place to learn without anyone saying "Course ma Xaina"!</p>
+                        
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">50+</span>
+                                <span class="stat-label">Active Members</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">1+</span>
+                                <span class="stat-label">Events Organized</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">1+</span>
+                                <span class="stat-label">Projects Completed</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">1+</span>
+                                <span class="stat-label">Partners</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <div class="about-image-placeholder">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery" id="gallery">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Gallery</h2>
+                    <p>Explore moments from our events, workshops, and community activities.</p>
+                </div>
+                <div class="gallery-grid" id="galleryGrid">
+                    <!-- javascript le pupulate garxa -->
+                </div>
+            </div>
+        </section>
+
+        <section class="services" id="services">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Work</h2>
+                    <p>Everyone is allowed to brainstorm ideas and present it. Think about it and we will make it happen!</p>
+                </div>
+                <div class="services-grid" id="servicesGrid">
+                    <!-- javascript le pupulate garxa -->
+                </div>
+            </div>
+        </section>
+
+        <section class="events" id="events">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Upcoming Events</h2>
+                    <p>Stay updated with our latest events, workshops, and activities.</p>
+                </div>
+                <div class="events-tabs" id="eventsTabs">
+                    <button class="event-tab active" data-category="all">All Events</button>
+                    <button class="event-tab" data-category="workshop">Workshops</button>
+                    <button class="event-tab" data-category="seminar">Seminars</button>
+                    <button class="event-tab" data-category="hackathon">Hackathons</button>
+                    <button class="event-tab" data-category="career">Career Events</button>
+                </div>
+                <div class="events-container-enhanced">
+                    <div class="calendar-compact">
+                        <div class="calendar-header-compact">
+                            <h3 id="calendar-month-year">October 2023</h3>
+                            <div class="calendar-nav-compact">
+                                <button id="prev-month" aria-label="Previous month">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <button id="next-month" aria-label="Next month">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="calendar-grid-compact" id="calendar-enhanced-days">
+                            <!-- javascript le pupulate garxa -->
+                        </div>
+                    </div>
+                    <div class="events-sidebar">
+                        <div class="event-category">
+                            <h4>Upcoming Events</h4>
+                            <div class="event-list" id="upcoming-events">
+                                <!-- javascript le pupulate garxa -->
+                            </div>
+                        </div>
+                        <div class="event-category">
+                            <h4>Ongoing Events</h4>
+                            <div class="event-list" id="ongoing-events">
+                                <!-- javascript le pupulate garxa -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-resources" id="resources">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Featured Resources</h2>
+                    <p>Discover the best platforms and tools to enhance your learning journey.</p>
+                </div>
+                <div class="resources-grid" id="resourcesGrid">
+                    <!-- javascript le pupulate garxa -->
+                </div>
+            </div>
+        </section>
+
+        <section class="goals" id="goals">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Goals</h2>
+                    <p>Our mission is driven by clear objectives to empower our members and community.</p>
+                </div>
+                <div class="goals-container" id="goalsContainer">
+                    <!-- javascript le pupulate garxa -->
+                </div>
+            </div>
+        </section>
+
+        <section class="join" id="join">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Join Us</h2>
+                    <p>Become a part of our growing community of technology enthusiasts.</p>
+                </div>
+                <div class="join-container">
+                    <div class="join-form-compact">
+                        <form id="joinForm" novalidate>
+                            <div class="form-group-compact">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group-compact">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group-compact">
+                                <label for="interest">Area of Interest</label>
+                                <select id="interest" name="interest" required>
+                                    <option value="">Select your interest</option>
+                                    <option value="web-dev">Web Development</option>
+                                    <option value="mobile-dev">Mobile Development</option>
+                                    <option value="ai-ml">AI & Machine Learning</option>
+                                    <option value="cybersecurity">Cybersecurity</option>
+                                    <option value="data-science">Data Science</option>
+                                    <option value="iot">Internet of Things</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="join-options">
+                                <div class="form-group-compact">
+                                    <label for="year">Year of Study</label>
+                                    <select id="year" name="year" required>
+                                        <option value="">Select year</option>
+                                        <option value="1">First Year</option>
+                                        <option value="2">Second Year</option>
+                                        <option value="3">Third Year</option>
+                                        <option value="4">Fourth Year</option>
+                                    </select>
+                                </div>
+                                <div class="form-group-compact">
+                                    <label for="department">Department</label>
+                                    <select id="department" name="department" required>
+                                        <option value="">Select department</option>
+                                        <option value="computer">Computer Engineering</option>
+                                        <option value="electronics">Electronics Engineering</option>
+                                        <option value="civil">Civil Engineering</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group-compact">
+                                <label for="message">Why do you want to join? (Optional)</label>
+                                <textarea id="message" name="message" placeholder="Tell us about your interests and goals"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Join Now</button>
+                        </form>
+                    </div>
+                    <div class="rules-section">
+                        <h3>Community Guidelines</h3>
+                        <ul class="rules-list">
+                            <li>Respect all members regardless of their background or experience level</li>
+                            <li>Maintain a positive and inclusive environment for everyone</li>
+                            <li>Participate actively in discussions and activities</li>
+                            <li>Share knowledge and help fellow members grow</li>
+                            <li>Respect intellectual property and give credit where due</li>
+                            <li>Keep discussions relevant to technology and learning</li>
+                            <li>No harassment, discrimination, or offensive behavior</li>
+                            <li>Follow college rules and regulations at all times</li>
+                            <li>Attend at least 60% of scheduled events and meetings</li>
+                            <li>Contribute to at least one community project per semester</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>KhEC IT Circle</h3>
+                    <p>Empowering technology enthusiasts through learning, collaboration, and innovation at Khwopa Engineering College.</p>
+                    <div class="social-links" id="socialLinks">
+                        <!-- javascript le pupulate garxa -->
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#resources">Resources</a></li>
+                        <li><a href="#goals">Our Goals</a></li>
+                        <li><a href="#join">Join Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services">Technical Workshops</a></li>
+                        <li><a href="#services">Networking Events</a></li>
+                        <li><a href="#services">Project Collaboration</a></li>
+                        <li><a href="#services">Career Guidance</a></li>
+                        <li><a href="#services">Hackathons</a></li>
+                        <li><a href="#services">Resource Library</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; <span id="currentYear">2025</span> KhEC IT Circle. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Fetch data from data.json
+        let siteConfig = {};
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initWebsite();
+        });
+
+        async function initWebsite() {
+            await fetchData();
+            initTheme();
+            initScrollEffects();
+            initMobileMenu();
+            initSmoothScrolling();
+            initScrollToTop();
+            initForms();
+            populateFromConfig();
+            initCalendar();
+            updateFooterYear();
+            initBackgrounds();
+            initEventTabs();
+        }
+
+        async function fetchData() {
+            try {
+                const response = await fetch('./data.json');
+                siteConfig = await response.json();
+            } catch (error) {
+                console.error('Error loading data:', error);
+                // Fallback data in case fetch fails
+                siteConfig = {
+                    gallery: [
+                        {
+                            "title": "Workshop Session",
+                            "image": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                            "description": "Students participating in a coding workshop"
+                        },
+                        {
+                            "title": "Hackathon Event",
+                            "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                            "description": "Annual hackathon competition"
+                        },
+                        {
+                            "title": "Industry Visit",
+                            "image": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                            "description": "Students visiting tech companies"
+                        },
+                        {
+                            "title": "Project Showcase",
+                            "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                            "description": "Showcasing student projects"
+                        },
+                        {
+                            "title": "Guest Lecture",
+                            "image": "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1412&q=80",
+                            "description": "Industry expert sharing insights"
+                        },
+                        {
+                            "title": "Team Building",
+                            "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80",
+                            "description": "Team building activities"
+                        }
+                    ],
+                    services: [
+                        {
+                            "title": "Technical Workshops",
+                            "description": "Hands-on workshops on the latest technologies and tools to enhance your skills.",
+                            "icon": "fas fa-laptop-code"
+                        },
+                        {
+                            "title": "Project Collaboration",
+                            "description": "Opportunities to work on real-world projects with fellow students and industry mentors.",
+                            "icon": "fas fa-users"
+                        },
+                        {
+                            "title": "Networking Events",
+                            "description": "Connect with industry professionals, alumni, and like-minded peers.",
+                            "icon": "fas fa-handshake"
+                        },
+                        {
+                            "title": "Career Guidance",
+                            "description": "Get guidance on career paths, internships, and job opportunities in the IT industry.",
+                            "icon": "fas fa-briefcase"
+                        },
+                        {
+                            "title": "Hackathons & Competitions",
+                            "description": "Participate in coding competitions and hackathons to test your skills.",
+                            "icon": "fas fa-trophy"
+                        },
+                        {
+                            "title": "Resource Library",
+                            "description": "Access to a curated collection of learning resources, books, and online courses.",
+                            "icon": "fas fa-book"
+                        }
+                    ],
+                    events: [
+                        {
+                            "title": "Web Development Workshop",
+                            "description": "Learn HTML, CSS, and JavaScript fundamentals in this hands-on workshop.",
+                            "type": "upcoming",
+                            "category": "workshop",
+                            "time": "2:00 PM - 5:00 PM",
+                            "location": "Lab 302",
+                            "date": "2023-10-15"
+                        },
+                        {
+                            "title": "AI & Machine Learning Seminar",
+                            "description": "Industry expert discussing the latest trends in AI and ML.",
+                            "type": "upcoming",
+                            "category": "seminar",
+                            "time": "10:00 AM - 12:00 PM",
+                            "location": "Auditorium",
+                            "date": "2023-10-20"
+                        },
+                        {
+                            "title": "Annual Hackathon",
+                            "description": "24-hour coding competition with exciting prizes.",
+                            "type": "ongoing",
+                            "category": "hackathon",
+                            "time": "All Day",
+                            "location": "Computer Lab",
+                            "date": "2023-10-05"
+                        },
+                        {
+                            "title": "Career Fair",
+                            "description": "Meet with top tech companies and explore internship opportunities.",
+                            "type": "upcoming",
+                            "category": "career",
+                            "time": "9:00 AM - 4:00 PM",
+                            "location": "Main Hall",
+                            "date": "2023-10-25"
+                        }
+                    ],
+                    resources: [
+                        {
+                            "name": "FreeCodeCamp",
+                            "description": "Learn to code for free with thousands of interactive coding challenges.",
+                            "url": "https://www.freecodecamp.org",
+                            "icon": "fab fa-free-code-camp"
+                        },
+                        {
+                            "name": "MDN Web Docs",
+                            "description": "Comprehensive documentation for web technologies including HTML, CSS, and JavaScript.",
+                            "url": "https://developer.mozilla.org",
+                            "icon": "fab fa-firefox"
+                        },
+                        {
+                            "name": "GitHub",
+                            "description": "Platform for version control and collaboration on software development projects.",
+                            "url": "https://github.com",
+                            "icon": "fab fa-github"
+                        },
+                        {
+                            "name": "Stack Overflow",
+                            "description": "Community-driven Q&A platform for programmers to share knowledge.",
+                            "url": "https://stackoverflow.com",
+                            "icon": "fab fa-stack-overflow"
+                        },
+                        {
+                            "name": "Codecademy",
+                            "description": "Interactive platform to learn coding skills with hands-on exercises.",
+                            "url": "https://www.codecademy.com",
+                            "icon": "fas fa-code"
+                        },
+                        {
+                            "name": "Coursera",
+                            "description": "Access online courses from top universities and companies worldwide.",
+                            "url": "https://www.coursera.org",
+                            "icon": "fas fa-graduation-cap"
+                        }
+                    ],
+                    goals: [
+                        {
+                            "title": "Skill Development",
+                            "description": "Provide opportunities for students to develop technical skills beyond the classroom curriculum.",
+                            "icon": "fas fa-cogs"
+                        },
+                        {
+                            "title": "Industry Exposure",
+                            "description": "Connect students with industry professionals and real-world projects.",
+                            "icon": "fas fa-industry"
+                        },
+                        {
+                            "title": "Community Building",
+                            "description": "Foster a collaborative environment where students can learn from each other.",
+                            "icon": "fas fa-users"
+                        },
+                        {
+                            "title": "Innovation & Research",
+                            "description": "Encourage innovative thinking and research in emerging technologies.",
+                            "icon": "fas fa-lightbulb"
+                        },
+                        {
+                            "title": "Career Preparation",
+                            "description": "Prepare students for successful careers in the technology industry.",
+                            "icon": "fas fa-briefcase"
+                        }
+                    ],
+                    contact: {
+                        "email": "itcircle@khec.edu.np",
+                        "phone": "+977-1-1234567",
+                        "address": "Khwopa Engineering College, Bhaktapur, Nepal"
+                    },
+                    socialLinks: [
+                        {
+                            "platform": "Facebook",
+                            "url": "https://facebook.com/khecitcircle"
+                        },
+                        {
+                            "platform": "Instagram",
+                            "url": "https://instagram.com/khecitcircle"
+                        },
+                        {
+                            "platform": "Twitter",
+                            "url": "https://twitter.com/khecitcircle"
+                        },
+                        {
+                            "platform": "LinkedIn",
+                            "url": "https://linkedin.com/company/khecitcircle"
+                        },
+                        {
+                            "platform": "GitHub",
+                            "url": "https://github.com/khecitcircle"
+                        }
+                    ]
+                };
+            }
+        }
+
+        function populateFromConfig() {
+            // Populate Gallery
+            const galleryGrid = document.getElementById('galleryGrid');
+            if (galleryGrid) {
+                siteConfig.gallery.forEach(item => {
+                    const galleryItem = document.createElement('div');
+                    galleryItem.className = 'gallery-item';
+                    galleryItem.innerHTML = `
+                        <img src="${item.image}" class="gallery-img" loading="lazy">
+                    `;
+                    galleryGrid.appendChild(galleryItem);
+                });
+            }
+
+            // Populate Services
+            const servicesGrid = document.getElementById('servicesGrid');
+            if (servicesGrid) {
+                siteConfig.services.forEach(service => {
+                    const serviceCard = document.createElement('div');
+                    serviceCard.className = 'service-card glass-card';
+                    serviceCard.innerHTML = `
+                        <div class="service-icon">
+                            <i class="${service.icon}"></i>
+                        </div>
+                        <h3>${service.title}</h3>
+                        <p>${service.description}</p>
+                    `;
+                    servicesGrid.appendChild(serviceCard);
+                });
+            }
+
+            // Populate Resources
+            const resourcesGrid = document.getElementById('resourcesGrid');
+            if (resourcesGrid) {
+                siteConfig.resources.forEach(resource => {
+                    const resourceCard = document.createElement('div');
+                    resourceCard.className = 'resource-card glass-card';
+                    resourceCard.innerHTML = `
+                        <div class="resource-icon">
+                            <i class="${resource.icon}"></i>
+                        </div>
+                        <h3>${resource.name}</h3>
+                        <p>${resource.description}</p>
+                        <a href="${resource.url}" class="resource-link" target="_blank" rel="noopener">Explore</a>
+                    `;
+                    resourcesGrid.appendChild(resourceCard);
+                });
+            }
+
+            // Populate Goals
+            const goalsContainer = document.getElementById('goalsContainer');
+            if (goalsContainer) {
+                siteConfig.goals.forEach(goal => {
+                    const goalItem = document.createElement('div');
+                    goalItem.className = 'goal-item';
+                    goalItem.innerHTML = `
+                        <div class="goal-icon">
+                            <i class="${goal.icon}"></i>
+                        </div>
+                        <div class="goal-content">
+                            <h3>${goal.title}</h3>
+                            <p>${goal.description}</p>
+                        </div>
+                    `;
+                    goalsContainer.appendChild(goalItem);
+                });
+            }
+
+            // Populate Social Links
+            const socialLinks = document.getElementById('socialLinks');
+            if (socialLinks) {
+                siteConfig.socialLinks.forEach(link => {
+                    const socialLink = document.createElement('a');
+                    socialLink.href = link.url;
+                    socialLink.setAttribute('aria-label', link.platform);
+                    socialLink.innerHTML = `<i class="fab fa-${link.platform.toLowerCase()}"></i>`;
+                    socialLinks.appendChild(socialLink);
+                });
+            }
+        }
+
+        function initEventTabs() {
+            const tabs = document.querySelectorAll('.event-tab');
+            const upcomingEvents = document.getElementById('upcoming-events');
+            const ongoingEvents = document.getElementById('ongoing-events');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs
+                    tabs.forEach(t => t.classList.remove('active'));
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    const category = this.getAttribute('data-category');
+                    filterEvents(category);
+                });
+            });
+
+            function filterEvents(category) {
+                // Clear events
+                upcomingEvents.innerHTML = '';
+                ongoingEvents.innerHTML = '';
+
+                const filteredEvents = siteConfig.events.filter(event => {
+                    return category === 'all' || event.category === category;
+                });
+
+                // Populate filtered events
+                filteredEvents.forEach(event => {
+                    const eventElement = document.createElement('div');
+                    eventElement.className = `event-card ${event.type}`;
+                    eventElement.innerHTML = `
+                        <h4>${event.title}</h4>
+                        <p>${event.description}</p>
+                        <div class="event-meta">
+                            <span><i class="far fa-clock"></i> ${event.time}</span>
+                            <span><i class="fas fa-map-marker-alt"></i> ${event.location}</span>
+                        </div>
+                    `;
+
+                    if (event.type === 'upcoming') {
+                        upcomingEvents.appendChild(eventElement);
+                    } else if (event.type === 'ongoing') {
+                        ongoingEvents.appendChild(eventElement);
+                    }
+                });
+            }
+
+            // Initialize with all events
+            filterEvents('all');
+        }
+
+        function initTheme() {
+            const themeToggle = document.getElementById('themeToggle');
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            updateThemeToggle(currentTheme);
+            
+            function toggleTheme() {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeToggle(newTheme);
+            }
+            
+            function updateThemeToggle(theme) {
+                const toggleThumb = document.querySelector('.toggle-thumb');
+                if (toggleThumb) {
+                    toggleThumb.style.transform = theme === 'dark' ? 'translateX(35px)' : 'translateX(0)';
+                }
+            }
+            
+            if (themeToggle) {
+                themeToggle.addEventListener('click', toggleTheme);
+            }
+        }
+
+        function initScrollEffects() {
+            const header = document.getElementById('header');
+            if (header) {
+                window.addEventListener('scroll', function() {
+                    header.classList.toggle('scrolled', window.scrollY > 50);
+                });
+            }
+        }
+
+        function initMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const navMenu = document.getElementById('navMenu');
+            
+            if (mobileMenu && navMenu) {
+                mobileMenu.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    navMenu.classList.toggle('active');
+                    const icon = mobileMenu.querySelector('i');
+                    const isExpanded = navMenu.classList.contains('active');
+                    mobileMenu.setAttribute('aria-expanded', isExpanded);
+                    icon.classList.toggle('fa-bars', !isExpanded);
+                    icon.classList.toggle('fa-times', isExpanded);
+                });
+                
+                document.addEventListener('click', function(e) {
+                    if (navMenu.classList.contains('active') && 
+                        !navMenu.contains(e.target) && 
+                        !mobileMenu.contains(e.target)) {
+                        navMenu.classList.remove('active');
+                        const icon = mobileMenu.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                        mobileMenu.setAttribute('aria-expanded', 'false');
+                    }
+                });
+                
+                window.addEventListener('resize', function() {
+                    if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        const icon = mobileMenu.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                        mobileMenu.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            }
+        }
+
+        function initSmoothScrolling() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                if (anchor.getAttribute('href') === '#' || 
+                    anchor.classList.contains('theme-toggle')) {
+                    return;
+                }
+                
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        const header = document.getElementById('header');
+                        const headerHeight = header ? header.offsetHeight : 0;
+                        const targetPosition = targetElement.offsetTop - headerHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                        
+                        if (window.innerWidth <= 768) {
+                            const navMenu = document.getElementById('navMenu');
+                            const mobileMenu = document.getElementById('mobileMenu');
+                            
+                            if (navMenu && mobileMenu && navMenu.classList.contains('active')) {
+                                navMenu.classList.remove('active');
+                                const icon = mobileMenu.querySelector('i');
+                                icon.classList.remove('fa-times');
+                                icon.classList.add('fa-bars');
+                                mobileMenu.setAttribute('aria-expanded', 'false');
+                            }
+                        }
+                    }
+                });
+            });
+        }
+
+        function initScrollToTop() {
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            
+            if (scrollToTopBtn) {
+                window.addEventListener('scroll', function() {
+                    scrollToTopBtn.classList.toggle('visible', window.scrollY > 300);
+                });
+                
+                scrollToTopBtn.addEventListener('click', function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        }
+
+        function initForms() {
+            const joinForm = document.getElementById('joinForm');
+            if (joinForm) {
+                joinForm.addEventListener('submit', handleJoinForm);
+            }
+        }
+
+        function handleJoinForm(e) {
+            e.preventDefault();
+            
+            // Simple validation
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const interest = document.getElementById('interest').value;
+            const year = document.getElementById('year').value;
+            const department = document.getElementById('department').value;
+            
+            if (!name || !email || !interest || !year || !department) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            if (!validateEmail(email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+            
+            // Simulate form submission
+            const submitBtn = this.querySelector('.btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Joining...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                alert('Thank you for your interest! We will contact you soon with more information.');
+                this.reset();
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }, 1500);
+        }
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        function initCalendar() {
+            let currentDate = new Date();
+            let currentMonth = currentDate.getMonth();
+            let currentYear = currentDate.getFullYear();
+
+            const calendarDays = document.getElementById('calendar-enhanced-days');
+            const calendarMonthYear = document.getElementById('calendar-month-year');
+            const prevMonthBtn = document.getElementById('prev-month');
+            const nextMonthBtn = document.getElementById('next-month');
+
+            function renderCalendar() {
+                // Clear previous calendar
+                calendarDays.innerHTML = '';
+
+                // Set month and year header
+                const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+                    'July', 'August', 'September', 'October', 'November', 'December'
+                ];
+                calendarMonthYear.textContent = `${monthNames[currentMonth]} ${currentYear}`;
+
+                // Create day headers
+                const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+                dayNames.forEach(day => {
+                    const dayHeader = document.createElement('div');
+                    dayHeader.className = 'calendar-day-header-compact';
+                    dayHeader.textContent = day;
+                    calendarDays.appendChild(dayHeader);
+                });
+
+                // Get first day of month and days in month
+                const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+                const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+                // Get days in previous month
+                const prevMonthLastDay = new Date(currentYear, currentMonth, 0).getDate();
+
+                // Create previous month's days
+                for (let i = firstDay - 1; i >= 0; i--) {
+                    const dayElement = document.createElement('div');
+                    dayElement.classList.add('calendar-day-compact', 'other-month');
+                    dayElement.textContent = prevMonthLastDay - i;
+                    calendarDays.appendChild(dayElement);
+                }
+
+                // Create current month's days
+                for (let i = 1; i <= daysInMonth; i++) {
+                    const dayElement = document.createElement('div');
+                    dayElement.classList.add('calendar-day-compact');
+                    dayElement.textContent = i;
+
+                    // Check if this day has events
+                    const dateStr = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}`;
+                    const hasEvent = siteConfig.events.some(event => event.date === dateStr);
+                    
+                    if (hasEvent) {
+                        dayElement.classList.add('has-event');
+                    }
+
+                    // Check if this is today
+                    const today = new Date();
+                    if (i === today.getDate() && currentMonth === today.getMonth() && currentYear === today.getFullYear()) {
+                        dayElement.classList.add('today');
+                    }
+
+                    calendarDays.appendChild(dayElement);
+                }
+
+                // Create next month's days
+                const totalCells = 42; // 6 rows * 7 columns
+                const remainingCells = totalCells - (firstDay + daysInMonth);
+                for (let i = 1; i <= remainingCells; i++) {
+                    const dayElement = document.createElement('div');
+                    dayElement.classList.add('calendar-day-compact', 'other-month');
+                    dayElement.textContent = i;
+                    calendarDays.appendChild(dayElement);
+                }
+            }
+
+            // Event listeners for month navigation
+            prevMonthBtn.addEventListener('click', () => {
+                currentMonth--;
+                if (currentMonth < 0) {
+                    currentMonth = 11;
+                    currentYear--;
+                }
+                renderCalendar();
+            });
+
+            nextMonthBtn.addEventListener('click', () => {
+                currentMonth++;
+                if (currentMonth > 11) {
+                    currentMonth = 0;
+                    currentYear++;
+                }
+                renderCalendar();
+            });
+
+            // Initial render
+            renderCalendar();
+        }
+
+        function updateFooterYear() {
+            const yearElement = document.getElementById('currentYear');
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+        }
+
+        function initBackgrounds() {
+            const sections = ['hero', 'about', 'services', 'events', 'resources', 'goals', 'join'];
+            
+            sections.forEach(section => {
+                const container = document.getElementById(`${section}Bg`);
+                if (container) {
+                    createBackground(container, 8);
+                }
+            });
+        }
+
+        function createBackground(container, count) {
+            for (let i = 0; i < count; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('floating-dot');
+                
+                // Random size
+                const size = Math.random() * 100 + 20;
+                dot.style.width = `${size}px`;
+                dot.style.height = `${size}px`;
+                
+                // Random position
+                dot.style.left = `${Math.random() * 100}%`;
+                dot.style.top = `${Math.random() * 100}%`;
+                
+                // Random animation delay and duration
+                const delay = Math.random() * 5;
+                const duration = Math.random() * 10 + 10;
+                dot.style.animationDelay = `${delay}s`;
+                dot.style.animationDuration = `${duration}s`;
+                
+                container.appendChild(dot);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -27,6 +27,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
@@ -35,600 +36,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/Draggable.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
-    <style>
-        :root {
-            --everforest-darkest: #2f383e;
-            --everforest-darker: #3b4247;
-            --everforest-medium: #474f54;
-            --everforest-text: #d3c6aa;
-            --everforest-light-text: #a79a83;
-            --everforest-green: #89b482;
-            --everforest-blue: #7fbbb3;
-            --everforest-orange: #e69875;
-            --terminal-green: #a7c080;
-            --terminal-red: #e67e80;
-            --terminal-yellow: #dbbc7f;
-            --everforest-bg-light: #474f54;
-            --everforest-bg-dark: #3b4247;
-            --everforest-accent-light: #89b482;
-            --everforest-accent-medium: #7fbbb3;
-            --everforest-accent-dark: #e69875;
-            --everforest-minty-green: #7fbbb3; 
-            --everforest-blueish-green: #89b482;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            background-color: var(--everforest-darkest);
-            color: var(--everforest-text);
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        ::-webkit-scrollbar {
-            width: 0px;
-            height: 0px;
-        }
-        html {
-            scrollbar-width: none;
-        }
-        body {
-            -ms-overflow-style: none;
-        }
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Inter', sans-serif; 
-            font-weight: 700;
-            color: var(--everforest-text);
-        }
-        .font-ubuntu { font-family: 'Ubuntu', sans-serif; }
-        .font-spacemono { font-family: 'Space Mono', monospace; } 
-        .font-inter { font-family: 'Inter', sans-serif; }
-        #three-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-        .glass-effect {
-            background-color: rgba(59, 66, 71, 0.2);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(127, 187, 179, 0.1);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-            border-radius: 16px;
-        }
-        header {
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        header.scrolled {
-            background: rgba(47, 56, 62, 0.4);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-        }
-        .logo-text {
-            font-family: 'Inter', sans-serif; 
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: var(--everforest-green);
-            letter-spacing: -0.05em;
-            text-shadow: 0 0 15px rgba(137, 180, 130, 0.5);
-            transition: all 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
-            display: inline-block;
-        }
-        .logo-text:hover {
-            transform: scale(1.05) rotate(-2deg);
-            text-shadow: 0 0 25px rgba(127, 187, 179, 0.8);
-        }
-        .nav-link {
-            color: var(--everforest-text);
-            position: relative;
-            transition: all 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
-            font-weight: 600;
-            font-family: 'Inter', sans-serif;
-            letter-spacing: 0.02em;
-            padding: 0.25rem 0.5rem;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0%;
-            height: 3px;
-            bottom: -4px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(90deg, var(--everforest-green), var(--everforest-blue));
-            border-radius: 2px;
-            transition: all 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
-        }
-        .nav-link:hover {
-            color: var(--everforest-green);
-            transform: translateY(-3px) scale(1.05);
-        }
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        .header-icon-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 44px;
-            height: 44px;
-            background-color: transparent;
-            border: 2px solid var(--everforest-medium);
-            color: var(--everforest-blue);
-            border-radius: 50%;
-            cursor: pointer;
-            position: relative;
-            transition: all 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-        .header-icon-btn:hover {
-            border-color: var(--everforest-green);
-            background-color: rgba(137, 180, 130, 0.2);
-            transform: scale(1.1) rotate(10deg);
-            box-shadow: 0 8px 25px rgba(137, 180, 130, 0.3);
-        }
-        .music-button .icon {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            transition: all 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
-        }
-        .music-button .play-icon { transform: scale(1); opacity: 1; }
-        .music-button .pause-icon { transform: scale(0); opacity: 0; }
-        .music-button.playing {
-            border-color: var(--everforest-green);
-            color: var(--everforest-green);
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(137, 180, 130, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(137, 180, 130, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(137, 180, 130, 0); }
-        }
-        .music-button.playing .play-icon { transform: scale(0); opacity: 0; }
-        .music-button.playing .pause-icon { transform: scale(1); opacity: 1; }
-        
-        .music-visualizer {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            display: flex;
-            justify-content: space-around;
-            align-items: flex-end;
-            overflow: hidden;
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-        .music-button.playing .music-visualizer {
-            opacity: 1;
-        }
-        .bar {
-            width: 2px;
-            height: 2px;
-            background-color: var(--everforest-blue);
-            border-radius: 1px;
-            animation: waveform 1.2s ease-in-out infinite alternate;
-            transform-origin: bottom;
-        }
-        .bar:nth-child(1) { animation-delay: 0.1s; }
-        .bar:nth-child(2) { animation-delay: 0.2s; }
-        .bar:nth-child(3) { animation-delay: 0.3s; }
-        .bar:nth-child(4) { animation-delay: 0.4s; }
-        .bar:nth-child(5) { animation-delay: 0.5s; }
-        .bar:nth-child(6) { animation-delay: 0.6s; }
-        .bar:nth-child(7) { animation-delay: 0.7s; }
-        .bar:nth-child(8) { animation-delay: 0.8s; }
-        .bar:nth-child(9) { animation-delay: 0.9s; }
-        .bar:nth-child(10) { animation-delay: 1.0s; }
-
-        @keyframes waveform {
-            0% { transform: scaleY(0.2); opacity: 0.5; }
-            50% { transform: scaleY(1); opacity: 1; }
-            100% { transform: scaleY(0.2); opacity: 0.5; }
-        }
-
-        .hero-text-container {
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-        }
-        .hero-line {
-            transform: translateY(100%);
-        }
-        .gradient-text {
-            background: linear-gradient(90deg, var(--everforest-minty-green), var(--everforest-blueish-green));
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            animation: gradient-flow 5s ease infinite;
-        }
-        @keyframes gradient-flow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .btn-primary, .btn-secondary {
-            padding: 0.8rem 2.2rem;
-            font-weight: 600;
-            border-radius: 9999px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            transition: all 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
-            cursor: pointer;
-            display: inline-block;
-            border: 2px solid transparent;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        .btn-primary {
-            background: linear-gradient(45deg, var(--everforest-green), var(--everforest-blue));
-            color: var(--everforest-darkest);
-            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
-        }
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, var(--everforest-blue), var(--everforest-green));
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: -1;
-        }
-        .btn-primary:hover::before { opacity: 1; }
-        .btn-primary:hover {
-            transform: translateY(-6px) scale(1.05);
-            box-shadow: 0 15px 30px rgba(127, 187, 179, 0.4);
-        }
-        .btn-secondary {
-            border-color: var(--everforest-medium);
-            color: var(--everforest-text);
-            background-color: transparent;
-        }
-        .btn-secondary:hover {
-            transform: translateY(-6px) scale(1.05);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            background-color: rgba(71, 79, 84, 0.2);
-            border-color: var(--everforest-blue);
-            color: var(--everforest-blue);
-        }
-        .skill-card {
-            padding: 2rem;
-            background-color: rgba(59, 66, 71, 0.4);
-            border: 1px solid rgba(127, 187, 179, 0.1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 1.5rem;
-            transition: all 0.3s ease-out;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-        .skill-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            border-color: var(--everforest-blue);
-            background-color: rgba(59, 66, 71, 0.6);
-        }
-        .skill-card span {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            display: inline-block;
-            transition: transform 0.3s ease-out;
-        }
-        .skill-card:hover span { 
-            transform: scale(1.1) rotate(5deg); 
-        }
-        .animate-scroll-arrow { animation: bounce-arrow 2.5s infinite ease-in-out; }
-        @keyframes bounce-arrow {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-20px); }
-            60% { transform: translateY(-10px); }
-        }
-        #mobile-menu-overlay { transition: all 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6); }
-        .terminal-window {
-            position: fixed;
-            bottom: -100%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 800px;
-            height: 60vh;
-            max-height: 500px;
-            background-color: rgba(43, 50, 54, 0.65);
-            backdrop-filter: blur(28px);
-            -webkit-backdrop-filter: blur(28px);
-            border-radius: 14px 14px 0 0;
-            box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-            z-index: 999;
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            border-top: 1px solid rgba(127, 187, 179, 0.2);
-            user-select: none;
-            touch-action: none;
-        }
-        .terminal-window.active { bottom: 0; }
-        .terminal-header {
-            padding: 0.5rem 1rem;
-            background-color: rgba(71, 79, 84, 0.8);
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            gap: 0.5rem;
-            border-bottom: 1px solid rgba(47, 56, 62, 0.8);
-            cursor: grab;
-        }
-        .terminal-header:active { cursor: grabbing; }
-        .terminal-button-close {
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background-color: var(--terminal-red);
-            border: none;
-            cursor: pointer;
-            transition: transform 0.2s ease;
-            margin-left: auto;
-        }
-        .terminal-button-close:hover { transform: scale(1.1); }
-        .terminal-title {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            font-family: 'Space Mono', monospace; 
-            font-size: 0.8rem;
-            color: var(--everforest-light-text);
-        }
-        .terminal-body {
-            flex-grow: 1;
-            padding: 1rem;
-            overflow-y: scroll;
-            font-family: 'Space Mono', monospace; 
-            color: var(--everforest-text);
-            font-size: 0.9rem;
-            line-height: 1.4;
-        }
-        .terminal-body::-webkit-scrollbar {
-            width: 0px;
-        }
-        .terminal-body {
-            scrollbar-width: none;
-        }
-        .terminal-prompt { display: flex; align-items: center; flex-wrap: wrap; margin-bottom: 0.5rem; }
-        .terminal-prompt-user { color: var(--terminal-green); margin-right: 0.5rem; }
-        .terminal-prompt-path { color: var(--everforest-blue); margin-right: 0.5rem; }
-        .terminal-prompt-symbol { color: var(--everforest-orange); margin-right: 0.5rem; }
-        .terminal-input {
-            background: transparent;
-            border: none;
-            color: var(--everforest-text);
-            font-family: 'Space Mono', monospace; 
-            font-size: 0.9rem;
-            flex-grow: 1;
-            outline: none;
-            caret-color: var(--everforest-green);
-            animation: blink-caret 0.75s step-end infinite;
-        }
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: var(--everforest-green); }
-        }
-        .terminal-output { margin-bottom: 0.5rem; white-space: pre-wrap; word-break: break-all; }
-        .terminal-command { color: var(--everforest-blue); }
-        .terminal-error { color: var(--terminal-red); }
-        .terminal-success { color: var(--terminal-green); }
-        .terminal-warning { color: var(--terminal-yellow); }
-        .pfp-container {
-            position: relative;
-            display: inline-block;
-            overflow: hidden;
-            border-radius: 50%;
-        }
-        .pfp-image {
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--everforest-blue);
-            box-shadow: 0 0 0 rgba(127, 187, 179, 0);
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .pfp-container:hover .pfp-image {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(127, 187, 179, 0.6);
-            border-color: var(--everforest-green);
-        }
-        footer {
-            background-color: rgba(59, 66, 71, 0.4);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-top: 1px solid rgba(127, 187, 179, 0.1);
-        }
-
-        .minty-green-text {
-            color: var(--everforest-green);
-            text-shadow: 0 0 10px rgba(137, 180, 130, 0.4);
-        }
-        
-        .nav-link:hover {
-            color: var(--everforest-green);
-            transform: translateY(-4px) scale(1.05);
-        }
-        
-        .skill-card:hover {
-            transform: translateY(-10px) scale(1.03);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-            border-color: var(--everforest-accent-medium);
-            background-color: rgba(59, 66, 71, 0.7);
-        }
-        .skill-card span {
-            transition: transform 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
-        }
-        .skill-card:hover span {
-            transform: scale(1.2) rotate(8deg);
-        }
-
-        @keyframes pfp-idle {
-            0% { transform: translateY(0) rotate(0deg); }
-            25% { transform: translateY(-2px) rotate(1deg); }
-            50% { transform: translateY(0) rotate(0deg); }
-            75% { transform: translateY(2px) rotate(-1deg); }
-            100% { transform: translateY(0) rotate(0deg); }
-        }
-
-        .pfp-image.idle-animation {
-            animation: pfp-idle 4s ease-in-out infinite;
-        }
-
-        @keyframes button-idle {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.03); }
-            100% { transform: scale(1); }
-        }
-
-        .btn-primary.idle-animation {
-            animation: button-idle 3s ease-in-out infinite;
-        }
-
-        /* Mobile Optimizations */
-        @media (max-width: 768px) {
-            .logo-text {
-                font-size: 1.4rem;
-            }
-            
-            .header-icon-btn {
-                width: 38px;
-                height: 38px;
-            }
-            
-            .hero-text-container h1 {
-                font-size: 3.5rem !important;
-                line-height: 1.1;
-            }
-            
-            #animated-tagline {
-                font-size: 1.2rem;
-            }
-            
-            .btn-primary, .btn-secondary {
-                padding: 0.7rem 1.8rem;
-                font-size: 0.95rem;
-            }
-            
-            .pfp-image {
-                width: 180px !important;
-                height: 180px !important;
-            }
-            
-            .skill-card {
-                padding: 1.5rem;
-            }
-            
-            .skill-card span {
-                font-size: 2.5rem;
-            }
-            
-            .skill-card h3 {
-                font-size: 1rem;
-            }
-            
-            .skill-card p {
-                font-size: 0.75rem;
-            }
-            
-            #mobile-menu-overlay a {
-                font-size: 1.8rem;
-            }
-            
-            .terminal-window {
-                width: 100%;
-                max-width: 100%;
-                border-radius: 0;
-            }
-            
-            .terminal-body {
-                font-size: 0.8rem;
-            }
-            
-            .terminal-title {
-                font-size: 0.7rem;
-            }
-            
-            footer .nav-link {
-                font-size: 0.9rem;
-            }
-            
-            /* Stack sections on mobile */
-            #helium .grid-cols-1 {
-                display: flex;
-                flex-direction: column;
-            }
-            
-            #helium .order-1 {
-                order: 1;
-            }
-            
-            #helium .order-2 {
-                order: 2;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-text-container h1 {
-                font-size: 2.8rem !important;
-            }
-            
-            #animated-tagline {
-                font-size: 1rem;
-            }
-            
-            .skill-card {
-                padding: 1.2rem;
-            }
-            
-            .skill-card span {
-                font-size: 2rem;
-            }
-            
-            .btn-primary, .btn-secondary {
-                padding: 0.6rem 1.5rem;
-                font-size: 0.9rem;
-            }
-            
-            .pfp-image {
-                width: 150px !important;
-                height: 150px !important;
-            }
-            
-            #mobile-menu-overlay a {
-                font-size: 1.5rem;
-            }
-            
-            .terminal-window {
-                height: 70vh;
-            }
-        }
-    </style>
 </head>
 <body class="relative font-inter">
     <div id="three-bg"></div>
@@ -700,7 +107,7 @@
             </div>
         </section>
 
-        <section id="helium" class="py-20 md:py-24 px-4 md:px-6 relative overflow-hidden glass-effect mx-4 md:mx-auto max-w-6xl my-12 rounded-2xl">
+        <section id="helium" class="section-shell py-20 md:py-24 px-4 md:px-6 relative overflow-hidden glass-effect mx-4 md:mx-auto max-w-6xl my-12 rounded-2xl">
             <div class="max-w-5xl mx-auto text-center relative z-10">
                 <h2 class="text-3xl md:text-4xl font-bold mb-12 md:mb-16 text-everforest-text" data-aos="fade-down" data-aos-duration="1000">About My Journey</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
@@ -729,55 +136,110 @@
             </div>
         </section>
 
-        <section id="lithium" class="py-20 md:py-24 px-4 md:px-6 relative overflow-hidden mx-4 md:mx-auto max-w-6xl my-12 rounded-2xl">
-             <div class="max-w-6xl mx-auto text-center relative z-10">
-                <h2 class="text-3xl md:text-4xl font-bold mb-12 md:mb-16 text-everforest-text" data-aos="fade-down" data-aos-duration="1000">My Toolkit & Passions</h2>
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-10 mt-8">
-                    <div class="skill-card" data-aos="zoom-in-up" data-aos-duration="600" data-aos-delay="100">
-                        <span class="text-4xl md:text-5xl mb-2 md:mb-3">⚡</span>
-                        <h3 class="text-lg md:text-xl font-semibold text-everforest-orange font-inter">C/C++ Main</h3>
-                        <p class="text-xs md:text-sm text-everforest-light-text font-spacemono">Low-level memory problems</p>
+        <section id="lithium" class="section-shell py-20 md:py-24 px-4 md:px-6 relative overflow-hidden mx-4 md:mx-auto max-w-6xl my-12 rounded-2xl">
+            <div class="max-w-6xl mx-auto text-center relative z-10">
+                <h2 class="text-3xl md:text-4xl font-bold mb-12 md:mb-16 text-everforest-text" data-aos="fade-down" data-aos-duration="1000">
+                    Hobbies & Toolkits
+                </h2>
+
+                <!-- Hobbies -->
+                <div class="mb-12">
+                    <h3 class="text-2xl md:text-3xl font-semibold text-everforest-text mb-6 font-inter" data-aos="fade-up" data-aos-duration="800">
+                        Hobbies
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
+                        <div class="skill-card" data-aos="zoom-in-up" data-aos-duration="600" data-aos-delay="50">
+                            <span class="text-4xl md:text-5xl mb-2 md:mb-3">📚</span>
+                            <h4 class="text-lg md:text-xl font-semibold text-everforest-orange font-inter">Book Guy</h4>
+                            <p class="text-xs md:text-sm text-everforest-light-text font-spacemono">
+                                Loves getting lost in ideas, stories, and random PDFs.
+                            </p>
+                        </div>
+                        <div class="skill-card" data-aos="zoom-in-up" data-aos-duration="600" data-aos-delay="150">
+                            <span class="text-4xl md:text-5xl mb-2 md:mb-3">🐧</span>
+                            <h4 class="text-lg md:text-xl font-semibold text-everforest-orange font-inter">Linux User (Arch btw)</h4>
+                            <p class="text-xs md:text-sm text-everforest-light-text font-spacemono">
+                                Tweaking configs, breaking things, fixing them… eventually.
+                            </p>
+                        </div>
+                        <div class="skill-card" data-aos="zoom-in-up" data-aos-duration="600" data-aos-delay="250">
+                            <span class="text-4xl md:text-5xl mb-2 md:mb-3">💚</span>
+                            <h4 class="text-lg md:text-xl font-semibold text-everforest-orange font-inter">Open Source Lover</h4>
+                            <p class="text-xs md:text-sm text-everforest-light-text font-spacemono">
+                                Uses, learns from, and dreams of contributing to cool OSS.
+                            </p>
+                        </div>
                     </div>
-                    <div class="skill-card" data-aos="zoom-in-up" data-aos-duration="600" data-aos-delay="200">
-                        <span class="text-4xl md:text-5xl mb-2 md:mb-3">🌐</span>
-                        <h3 class="text-lg md:text-xl font-semibold text-everforest-orange font-inter">Web Development</h3>
-                        <p class="text-xs md:text-sm text-everforest-light-text font-spacemono">HTML, CSS, JavaScript, Vuejs</p>
-                    </div>
-                    <div class="skill-card" data-aos="zoom-in-up" data-aos-duration="600" data-aos-delay="300">
-                        <span class="text-4xl md:text-5xl mb-2 md:mb-3">☕</span>
-                        <h3 class="text-lg md:text-xl font-semibold text-everforest-orange font-inter">Java</h3>
-                        <p class="text-xs md:text-sm text-everforest-light-text font-spacemono">Object Oriented Erros</p>
-                    </div>
-                    <div class="skill-card" data-aos="zoom-in-up" data-aos-duration="600" data-aos-delay="400">
-                        <span class="text-4xl md:text-5xl mb-2 md:mb-3">🔢</span>
-                        <h3 class="text-lg md:text-xl font-semibold text-everforest-orange font-inter">Numbers & Logic</h3>
-                        <p class="text-xs md:text-sm text-everforest-light-text font-spacemono">Algorithms, problem-solving, headache</p>
-                    </div>
-                    <div class="skill-card" data-aos="zoom-in-up" data-aos-duration="600" data-aos-delay="500">
-                        <span class="text-4xl md:text-5xl mb-2 md:mb-3">🔌</span>
-                        <h3 class="text-lg md:text-xl font-semibold text-everforest-orange font-inter">Electrical Circuits</h3>
-                        <p class="text-xs md:text-sm text-everforest-light-text font-spacemono">Hardware-software and 2nd degree burns</p>
-                    </div>
-                    <div class="skill-card" data-aos="zoom-in-up" data-aos-duration="600" data-aos-delay="600">
-                        <span class="text-4xl md:text-5xl mb-2 md:mb-3">📦</span>
-                        <h3 class="text-lg md:text-xl font-semibold text-everforest-orange font-inter">Logistics & Systems</h3>
-                        <p class="text-xs md:text-sm text-everforest-light-text font-spacemono">Efficiency V + Mending</p>
-                    </div>
-                    <div class="skill-card" data-aos="zoom-in-up" data-aos-duration="600" data-aos-delay="700">
-                        <span class="text-4xl md:text-5xl mb-2 md:mb-3">🎨</span>
-                        <h3 class="text-lg md:text-xl font-semibold text-everforest-orange font-inter">Qt</h3>
-                        <p class="text-xs md:text-sm text-everforest-light-text font-spacemono">Not good at it, tara I use it :)</p>
-                    </div>
-                     <div class="skill-card" data-aos="zoom-in-up" data-aos-duration="600" data-aos-delay="800">
-                        <span class="text-4xl md:text-5xl mb-2 md:mb-3">🤔</span>
-                        <h3 class="text-lg md:text-xl font-semibold text-everforest-orange font-inter">Philosophy</h3>
-                        <p class="text-xs md:text-sm text-everforest-light-text font-spacemono">Thinking about thinking</p>
+                </div>
+
+                <!-- Toolkits -->
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-semibold text-everforest-text mb-6 font-inter" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                        Toolkits
+                    </h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
+                        <div class="skill-card" data-aos="zoom-in-up" data-aos-duration="600" data-aos-delay="50">
+                            <span class="text-4xl md:text-5xl mb-2 md:mb-3">⚙️</span>
+                            <h4 class="text-lg md:text-xl font-semibold text-everforest-orange font-inter">C</h4>
+                            <p class="text-xs md:text-sm text-everforest-light-text font-spacemono">
+                                Low-level control and pointer adventures.
+                            </p>
+                        </div>
+                        <div class="skill-card" data-aos="zoom-in-up" data-aos-duration="600" data-aos-delay="100">
+                            <span class="text-4xl md:text-5xl mb-2 md:mb-3">🚀</span>
+                            <h4 class="text-lg md:text-xl font-semibold text-everforest-orange font-inter">C++</h4>
+                            <p class="text-xs md:text-sm text-everforest-light-text font-spacemono">
+                                OOP, STL, and occasional template headaches.
+                            </p>
+                        </div>
+                        <div class="skill-card" data-aos="zoom-in-up" data-aos-duration="600" data-aos-delay="150">
+                            <span class="text-4xl md:text-5xl mb-2 md:mb-3">☕</span>
+                            <h4 class="text-lg md:text-xl font-semibold text-everforest-orange font-inter">Java</h4>
+                            <p class="text-xs md:text-sm text-everforest-light-text font-spacemono">
+                                Object-oriented errors, but in a comfy VM.
+                            </p>
+                        </div>
+                        <div class="skill-card" data-aos="zoom-in-up" data-aos-duration="600" data-aos-delay="200">
+                            <span class="text-4xl md:text-5xl mb-2 md:mb-3">🌐</span>
+                            <h4 class="text-lg md:text-xl font-semibold text-everforest-orange font-inter">Vue.js</h4>
+                            <p class="text-xs md:text-sm text-everforest-light-text font-spacemono">
+                                Reactive UIs with a chill learning curve.
+                            </p>
+                        </div>
+                        <div class="skill-card" data-aos="zoom-in-up" data-aos-duration="600" data-aos-delay="250">
+                            <span class="text-4xl md:text-5xl mb-2 md:mb-3">🧱</span>
+                            <h4 class="text-lg md:text-xl font-semibold text-everforest-orange font-inter">SolidJS</h4>
+                            <p class="text-xs md:text-sm text-everforest-light-text font-spacemono">
+                                Fine-grained reactivity and snappy frontends.
+                            </p>
+                        </div>
+                        <div class="skill-card" data-aos="zoom-in-up" data-aos-duration="600" data-aos-delay="300">
+                            <span class="text-4xl md:text-5xl mb-2 md:mb-3">🧵</span>
+                            <h4 class="text-lg md:text-xl font-semibold text-everforest-orange font-inter">Node.js</h4>
+                            <p class="text-xs md:text-sm text-everforest-light-text font-spacemono">
+                                APIs, bots, and backends in JavaScript land.
+                            </p>
+                        </div>
+                        <div class="skill-card" data-aos="zoom-in-up" data-aos-duration="600" data-aos-delay="350">
+                            <span class="text-4xl md:text-5xl mb-2 md:mb-3">🔧</span>
+                            <h4 class="text-lg md:text-xl font-semibold text-everforest-orange font-inter">Web Basics</h4>
+                            <p class="text-xs md:text-sm text-everforest-light-text font-spacemono">
+                                HTML, CSS, vanilla JS – the usual suspects.
+                            </p>
+                        </div>
+                        <div class="skill-card" data-aos="zoom-in-up" data-aos-duration="600" data-aos-delay="400">
+                            <span class="text-4xl md:text-5xl mb-2 md:mb-3">🧠</span>
+                            <h4 class="text-lg md:text-xl font-semibold text-everforest-orange font-inter">More Soon</h4>
+                            <p class="text-xs md:text-sm text-everforest-light-text font-spacemono">
+                                Always adding new tools as the journey continues.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="beryllium" class="py-20 md:py-24 px-4 md:px-6 relative overflow-hidden mx-4 md:mx-auto max-w-6xl my-12 rounded-2xl">
+        <section id="beryllium" class="section-shell py-20 md:py-24 px-4 md:px-6 relative overflow-hidden mx-4 md:mx-auto max-w-6xl my-12 rounded-2xl">
              <div class="max-w-6xl mx-auto text-center relative z-10">
                 <h2 class="text-3xl md:text-4xl font-bold mb-12 md:mb-16 text-everforest-text" data-aos="fade-down" data-aos-duration="1000">My Projects</h2>
                 <div class="mt-8 p-6 md:p-10 bg-everforest-darker glass-effect rounded-xl shadow-lg border border-everforest-blue" data-aos="zoom-in-up" data-aos-duration="1000" data-aos-delay="200">
@@ -796,7 +258,7 @@
             </div>
         </section>
 
-        <section id="boron" class="py-20 md:py-24 px-4 md:px-6 relative overflow-hidden mx-4 md:mx-auto max-w-6xl my-12 rounded-2xl">
+        <section id="boron" class="section-shell py-20 md:py-24 px-4 md:px-6 relative overflow-hidden mx-4 md:mx-auto max-w-6xl my-12 rounded-2xl">
             <div class="max-w-4xl mx-auto text-center relative z-10">
                 <h2 class="text-3xl md:text-4xl font-bold mb-12 md:mb-16 text-everforest-text" data-aos="fade-down" data-aos-duration="1000">Let's Connect!</h2>
                 <p class="text-base md:text-xl text-everforest-light-text mb-6 md:mb-8 leading-relaxed font-spacemono" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
@@ -821,387 +283,6 @@
         </div>
     </footer>
     
-    <script>
-        gsap.registerPlugin(ScrollTrigger, TextPlugin, Draggable);
-
-        document.addEventListener('DOMContentLoaded', () => {
-            AOS.init({
-                duration: 900,
-                easing: 'power3.out',
-                once: true,
-                mirror: false,
-                anchorPlacement: 'top-bottom',
-                offset: 60,
-            });
-
-            const terminalWindow = document.createElement('div');
-            terminalWindow.className = 'terminal-window';
-            terminalWindow.id = 'terminal-window';
-            terminalWindow.innerHTML = `
-                <div class="terminal-header">
-                    <div class="terminal-title">sulav@portfolio: ~</div>
-                    <button class="terminal-button-close"></button>
-                </div>
-                <div class="terminal-body">
-                    <div class="terminal-output">Wlc to My attempt to remake my Terminal</div>
-                    <div class="terminal-output">Type 'help' for list of cmds <3</div>
-                    <div class="terminal-prompt">
-                        <span class="terminal-prompt-user">sulav@portfolio</span><span class="terminal-prompt-path">~</span><span class="terminal-prompt-symbol">$</span>
-                        <input type="text" class="terminal-input" autofocus>
-                    </div>
-                </div>
-            `;
-            document.body.appendChild(terminalWindow);
-
-            const heroTerminalButton = document.getElementById('hero-terminal-button');
-            const headerTerminalButton = document.getElementById('header-terminal-button');
-            const terminalInput = terminalWindow.querySelector('.terminal-input');
-            const terminalBody = terminalWindow.querySelector('.terminal-body');
-            const terminalHeader = terminalWindow.querySelector('.terminal-header');
-            const terminalCloseButton = terminalWindow.querySelector('.terminal-button-close');
-
-            Draggable.create("#terminal-window", {
-                trigger: ".terminal-header",
-                type: "x,y",
-                bounds: "body",
-                cursor: "grabbing",
-                activeCursor: "grabbing"
-            });
-
-            const commands = {
-                help: {
-                    description: 'Show available commands',
-                    execute: () => {
-                        let output = 'Available commands:\n\n';
-                        Object.keys(commands).forEach(cmd => {
-                            output += `<span class="terminal-command">${cmd.padEnd(10, ' ')}</span> - ${commands[cmd].description}\n`;
-                        });
-                        output += '\nUse <span class="terminal-command">clear</span> to clear terminal';
-                        return output;
-                    }
-                },
-                about: { description: 'Show about information', execute: () => `Namaste, Ma Sulav Thapa. Just a normal everyday guy whos into computers.\nNot the best at it but I try to love everything I do.\nMade Discord Bots, Websites, Some Cheats for games and so on..\nBut ultimately I just love learning about computers. :D` },
-                skills: { description: 'List my technical skills', execute: () => `I wouldnt call my self perfect in anyof these\nBut I can grasp the concepts and solve problems using these:\n- C/C++\n- JavaScript\n- Java\n- Digital Logic\n- Algorithms\n- Problem Solving\n- Qt Framework` },
-                projects: { description: 'Show my projects', execute: () => `Projects:\n\nComing soon...\n\n"The ones I have done aren't as perfect as I want them to be."` },
-                contact: { description: 'Show contact information', execute: () => `Contact:\n\nEmail: notquiteready@soon.com\nNope not right now at least. :)` },
-                clear: {
-                    description: 'Clear terminal screen',
-                    execute: () => {
-                        terminalBody.innerHTML = `<div class="terminal-prompt"><span class="terminal-prompt-user">sulav@portfolio</span><span class="terminal-prompt-path">~</span><span class="terminal-prompt-symbol">$</span><input type="text" class="terminal-input" autofocus></div>`;
-                        terminalBody.querySelector('.terminal-input').addEventListener('keydown', handleCommand);
-                        terminalBody.querySelector('.terminal-input').focus();
-                        return null;
-                    }
-                },
-                date: { description: 'Show current date and time', execute: () => new Date().toString() },
-                echo: { description: 'Print arguments to terminal', execute: (args) => args.join(' ') },
-                ping: { description: 'Ping a host (fake)', execute: (args) => {
-                    const host = args[0] || 'startpage.com';
-                    return `PING ${host} (${Math.random() > 0.5 ? '142.250.190.14' : '172.217.160.142'}): 56 data bytes\n64 bytes from ${host}: icmp_seq=0 ttl=118 time=${(Math.random() * 50 + 20).toFixed(2)} ms\n64 bytes from ${host}: icmp_seq=1 ttl=118 time=${(Math.random() * 50 + 20).toFixed(2)} ms\n64 bytes from ${host}: icmp_seq=2 ttl=118 time=${(Math.random() * 50 + 20).toFixed(2)} ms\n--- ${host} ping statistics ---\n3 packets transmitted, 3 packets received, 0% packet loss\nround-trip min/avg/max/stddev = ${(Math.random() * 20 + 20).toFixed(2)}/${(Math.random() * 30 + 30).toFixed(2)}/${(Math.random() * 40 + 40).toFixed(2)}/${(Math.random() * 5 + 5).toFixed(2)} ms`;
-                }},
-                neofetch: {
-    description: 'Display system information',
-    execute: () => `
-<span class="terminal-success">        .-/+oossssoo+/-.            </span> <span class="terminal-command">www.thapasulav.info.np</span>
-<span class="terminal-success">    :+ssssssssssssssssss+:          </span> ---------------------
-<span class="terminal-success">  .:osssssssssssssssssssso:-.       </span> <span class="terminal-command">OS:</span> Endevour OS
-<span class="terminal-success"> /osssssssssssssssssssso/:-         </span> <span class="terminal-command">Device:</span> Lenovo Legion
-<span class="terminal-success">-ossssssssssssssssssso/:-           </span> <span class="terminal-command">Kernel:</span> 6.14.9
-<span class="terminal-success">:ossssssssssssssssssso:-            </span> <span class="terminal-command">GPU:</span> NVIDIA GeForce RTX 4070
-<span class="terminal-success">/ossssssssssssssssssso:-            </span> <span class="terminal-command">CPU:</span> Intel i7-14700HX
-<span class="terminal-success">:ossssssssssssssssssso:-            </span> <span class="terminal-command">Shell:</span> fish 4.0.2
-<span class="terminal-success">-ossssssssssssssssssso:-            </span> <span class="terminal-command">Resolution:</span> ${window.innerWidth}x${window.innerHeight}
-<span class="terminal-success"> /ossssssssssssssssssso:-           </span> <span class="terminal-command">DE:</span> GNOME
-<span class="terminal-success">  .:osssssssssssssssssssso:-.       </span> <span class="terminal-command">WM:</span> Mutter
-<span class="terminal-success">    :+ssssssssssssssssss+:          </span> <span class="terminal-command">Theme:</span> Everforest
-<span class="terminal-success">        .-/+oossssoo+/-.            </span> <span class="terminal-command">Icons:</span> Tela-Circle-Dark
-<span class="terminal-success">                                    </span> <span class="terminal-command">Terminal:</span> Kitty
-    `
-},
-                sudo: { description: 'Execute command as sudo', execute: () => `<span class="terminal-error">Error: Nope</span>` }
-            };
-
-            const openTerminal = () => {
-                terminalWindow.classList.add('active');
-                gsap.to(terminalWindow, { bottom: '0', left: '50%', x: '-50%', duration: 0.8, ease: 'power4.out' });
-                setTimeout(() => terminalWindow.querySelector('.terminal-input').focus(), 100);
-            };
-
-            const closeTerminal = () => {
-                gsap.to(terminalWindow, { bottom: '-100%', duration: 0.6, ease: 'power4.in', onComplete: () => terminalWindow.classList.remove('active') });
-            };
-
-            heroTerminalButton.addEventListener('click', openTerminal);
-            headerTerminalButton.addEventListener('click', openTerminal);
-            terminalCloseButton.addEventListener('click', closeTerminal);
-            
-            const handleCommand = (e) => {
-                if (e.key === 'Enter') {
-                    const currentInput = e.target;
-                    const input = currentInput.value.trim();
-                    currentInput.disabled = true;
-
-                    const outputContainer = document.createElement('div');
-                    outputContainer.className = 'terminal-output';
-                    
-                    const args = input.split(' ');
-                    const cmd = args.shift().toLowerCase();
-
-                    let result = '';
-                    if (commands[cmd]) {
-                        result = commands[cmd].execute(args);
-                    } else if (input) {
-                        result = `<span class="terminal-error">Command not found: ${cmd}</span>`;
-                    }
-                    
-                    if(input) {
-                        outputContainer.innerHTML = result;
-                        terminalBody.appendChild(outputContainer);
-                        gsap.from(outputContainer, { opacity: 0, y: 10, duration: 0.3, ease: 'power2.out' });
-                    }
-
-                    if (cmd !== 'clear') {
-                        const newPrompt = document.createElement('div');
-                        newPrompt.className = 'terminal-prompt';
-                        newPrompt.innerHTML = `<span class="terminal-prompt-user">sulav@portfolio</span><span class="terminal-prompt-path">~</span><span class="terminal-prompt-symbol">$</span><input type="text" class="terminal-input" autofocus>`;
-                        terminalBody.appendChild(newPrompt);
-                        const newTerminalInput = newPrompt.querySelector('.terminal-input');
-                        newTerminalInput.addEventListener('keydown', handleCommand);
-                        newTerminalInput.focus();
-                        gsap.from(newPrompt, { opacity: 0, y: 10, duration: 0.3, ease: 'power2.out' });
-                    }
-                    
-                    terminalBody.scrollTop = terminalBody.scrollHeight;
-                }
-            };
-
-            terminalInput.addEventListener('keydown', handleCommand);
-        });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const closeMobileMenuButton = document.getElementById('close-mobile-menu');
-            const header = document.querySelector('header');
-            const currentYearSpan = document.getElementById('current-year');
-            const musicButton = document.getElementById('header-music-button');
-            const allNavLinks = document.querySelectorAll('a[href^="#"]');
-            const animatedTagline = document.getElementById('animated-tagline');
-            const pfpImage = document.querySelector('.pfp-image');
-            
-            const audio = new Audio('forest-lofi.mp3'); 
-            audio.loop = true;
-            audio.volume = 0.6;
-            let isPlaying = false;
-
-            const taglinePhrases = ["A Passionate Creator", "A Chess Player", "A C++ Dev", "A Web Dev", "A Book Enjoyer"];
-            let currentPhraseIndex = 0;
-
-            const animateTagline = () => {
-                gsap.to(animatedTagline, {
-                    opacity: 0,
-                    y: -10,
-                    duration: 0.4,
-                    ease: "power2.in",
-                    onComplete: () => {
-                        currentPhraseIndex = (currentPhraseIndex + 1) % taglinePhrases.length;
-                        animatedTagline.textContent = taglinePhrases[currentPhraseIndex];
-                        gsap.fromTo(animatedTagline, 
-                            { opacity: 0, y: 10 }, 
-                            { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }
-                        );
-                    }
-                });
-            };
-
-            setInterval(animateTagline, 3000); 
-
-            const tl = gsap.timeline({defaults: { ease: "power4.out" }});
-            tl.to('.hero-line', { y: 0, duration: 0.8, stagger: 0.15, delay: 0.3 });
-            tl.fromTo('#hero-button-container', { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.7 }, "-=0.5");
-            tl.fromTo('.animate-scroll-arrow', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8 }, "-=0.4");
-
-            gsap.to('.animate-scroll-arrow', { y: -10, duration: 1.2, repeat: -1, yoyo: true, ease: 'sine.inOut' });
-
-            if (musicButton) {
-                musicButton.addEventListener('click', () => {
-                    isPlaying = !isPlaying;
-                    if (isPlaying) {
-                        audio.play().catch(error => {
-                            console.error("Audio playback failed:", error);
-                            isPlaying = false;
-                            musicButton.classList.remove('playing');
-                        });
-                        musicButton.classList.add('playing');
-                    } else {
-                        audio.pause();
-                        musicButton.classList.remove('playing');
-                    }
-                });
-            }
-
-            const closeMobileMenu = () => {
-                if (!mobileMenuOverlay) return;
-                gsap.to(mobileMenuOverlay, { opacity: 0, duration: 0.3, ease: 'power2.in', onComplete: () => { mobileMenuOverlay.classList.add('hidden'); document.body.style.overflow = ''; } });
-            };
-
-            const openMobileMenu = () => {
-                if (!mobileMenuOverlay) return;
-                mobileMenuOverlay.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
-                gsap.fromTo(mobileMenuOverlay, { opacity: 0 }, { opacity: 1, duration: 0.3, ease: 'power2.out' });
-                gsap.from(mobileMenuOverlay.querySelectorAll('a'), { y: 20, opacity: 0, stagger: 0.1, duration: 0.5, ease: 'power2.out' });
-            };
-
-            if (mobileMenuButton) mobileMenuButton.addEventListener('click', openMobileMenu);
-            if (closeMobileMenuButton) closeMobileMenuButton.addEventListener('click', closeMobileMenu);
-
-            allNavLinks.forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    const href = this.getAttribute('href');
-                    if (href.startsWith('#')) {
-                        e.preventDefault();
-                        const targetElement = document.querySelector(href);
-                        if (targetElement) {
-                            gsap.to(window, { duration: 1.2, scrollTo: { y: targetElement, offsetY: 80 }, ease: 'power4.inOut' });
-                            if (mobileMenuOverlay && !mobileMenuOverlay.classList.contains('hidden')) closeMobileMenu();
-                        }
-                    }
-                });
-            });
-
-            window.addEventListener('scroll', () => {
-                if (header) {
-                    header.classList.toggle('scrolled', window.scrollY > 50);
-                }
-            }, { passive: true });
-
-            if (currentYearSpan) currentYearSpan.textContent = new Date().getFullYear();
-
-            if (pfpImage) {
-                pfpImage.classList.add('idle-animation');
-            }
-
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            const renderer = new THREE.WebGLRenderer({ antialias: false, alpha: true }); 
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setClearColor(0x000000, 0); 
-            document.getElementById('three-bg').appendChild(renderer.domElement);
-            
-            const particles = new THREE.Group();
-            scene.add(particles);
-
-            const particleCount = 360;
-            const particleVertices = [];
-            const particleSize = 0.36; 
-            const connectionDistance = 22;
-            const maxOpacity = 0.065;
-
-            const colors = [
-                new THREE.Color(0x89b482), 
-                new THREE.Color(0x7fbbb3), 
-                new THREE.Color(0xe69875),
-                new THREE.Color(0xa79a83)
-            ];
-
-            const particleMaterial = new THREE.MeshBasicMaterial({
-                transparent: true,
-                blending: THREE.AdditiveBlending 
-            });
-
-            const particleGeometry = new THREE.SphereGeometry(particleSize, 8, 8); 
-
-            for (let i = 0; i < particleCount; i++) {
-                const color = colors[Math.floor(Math.random() * colors.length)];
-                const particle = new THREE.Mesh(particleGeometry, particleMaterial.clone());
-                particle.material.color = color;
-                particle.material.opacity = Math.random() * 0.5 + 0.1;
-                
-                const x = (Math.random() - 0.5) * 200;
-                const y = (Math.random() - 0.5) * 200;
-                const z = (Math.random() - 0.5) * 200;
-                particle.position.set(x, y, z);
-                
-                particle.userData.velocity = new THREE.Vector3(
-                    (Math.random() - 0.5) * 0.01,
-                    (Math.random() - 0.5) * 0.01,
-                    (Math.random() - 0.5) * 0.01
-                );
-                
-                particles.add(particle);
-                particleVertices.push(particle.position);
-            }
-
-            const lineGeometry = new THREE.BufferGeometry();
-            const linePositions = new Float32Array(particleCount * particleCount * 3);
-            lineGeometry.setAttribute('position', new THREE.BufferAttribute(linePositions, 3).setUsage(THREE.DynamicDrawUsage));
-            const lineMaterial = new THREE.LineBasicMaterial({
-                color: 0x7fbbb3,
-                transparent: true,
-                opacity: maxOpacity, 
-                blending: THREE.AdditiveBlending
-            });
-            const lineMesh = new THREE.LineSegments(lineGeometry, lineMaterial);
-            scene.add(lineMesh);
-
-            camera.position.z = 50;
-            let mouseX = 0;
-            let mouseY = 0;
-
-            document.addEventListener('mousemove', (event) => {
-                mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-                mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
-            });
-
-            function animate() {
-                requestAnimationFrame(animate);
-
-                particles.children.forEach(particle => {
-                    particle.position.add(particle.userData.velocity);
-                    if (Math.abs(particle.position.x) > 100) particle.position.x *= -1;
-                    if (Math.abs(particle.position.y) > 100) particle.position.y *= -1;
-                    if (Math.abs(particle.position.z) > 100) particle.position.z *= -1;
-                });
-                
-                let lineIndex = 0;
-                
-                for(let i = 0; i < particleCount; i++) {
-                    for(let j = i + 1; j < particleCount; j++) {
-                        const dist = particleVertices[i].distanceTo(particleVertices[j]);
-                        if(dist < connectionDistance) {
-                            linePositions[lineIndex++] = particleVertices[i].x;
-                            linePositions[lineIndex++] = particleVertices[i].y;
-                            linePositions[lineIndex++] = particleVertices[i].z;
-                            linePositions[lineIndex++] = particleVertices[j].x;
-                            linePositions[lineIndex++] = particleVertices[j].y;
-                            linePositions[lineIndex++] = particleVertices[j].z;
-                        }
-                    }
-                }
-                
-                lineGeometry.setDrawRange(0, lineIndex / 3); 
-                lineGeometry.attributes.position.needsUpdate = true;
-                
-                const time = Date.now() * 0.0002;
-                lineMesh.material.opacity = (Math.sin(time) * 0.25 + 0.75) * maxOpacity;
-
-                camera.position.x += (mouseX * 10 - camera.position.x) * 0.05; 
-                camera.position.y += (-mouseY * 10 - camera.position.y) * 0.05; 
-                camera.lookAt(scene.position);
-
-                renderer.render(scene, camera);
-            }
-
-            function onWindowResize() {
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(window.innerWidth, window.innerHeight);
-            }
-
-            window.addEventListener('resize', onWindowResize);
-            animate();
-        });
-    </script>
+    <script src="scripts.js"></script>
 </body>
 </html>
